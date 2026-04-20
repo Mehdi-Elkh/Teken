@@ -1,4 +1,6 @@
 #include <stdlib.h>
+#include <stdio.h>
+
 
 int main(){
   int choix;
@@ -11,10 +13,10 @@ int main(){
     scanf("%d", &choix);
 
     if(choix == 1){
-      printf("Mode enseignant ...\n);
+      printf("Mode enseignant \n");
     }
     else if(choix == 2){
-        printf("Moee enseeignant ...\n);
+        printf("Mode étudiant \n");
     }
     else{
         printf("Ce que vous avez entré n'est pas valide, veuillez entrer un nombre entre 1 et 3. \n");
