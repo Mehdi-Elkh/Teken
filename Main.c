@@ -40,7 +40,7 @@ int main(){
       printf("Mode enseignant \n");
     }
     else if(choix == 2){
-        printf("Mode étudiant \n");
+        mode_etudiant();
     }
     else{
         printf("Ce que vous avez entré n'est pas valide, veuillez entrer un nombre entre 1 et 3. \n");
