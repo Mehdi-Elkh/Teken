@@ -1,5 +1,29 @@
 #include <stdlib.h>
 #include <stdio.h>
+void mode_etudiant(){
+    int a;
+    int note;
+    note = 0;
+    printf("mode étudiant\n");
+    printf("quelle est la racine carré de 25?\n");
+    printf("1- 10\n");
+    printf("2- 5\n");
+    printf("3- 20\n");
+    scanf("%d",&a);
+    if(a==1){
+        printf("Faux\n");
+    }
+    else if(a==2){
+        printf("Vrai\n");
+        note = note + 1;
+    }
+    else{
+        printf("Faux\n");
+      }
+    printf("votre note est %d \n",&note);
+
+
+}
 
 
 int main(){
