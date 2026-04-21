@@ -20,7 +20,7 @@ void mode_etudiant(){
     else{
         printf("Faux\n");
       }
-    printf("votre note est %d \n",&note);
+    printf("votre note est %d \n",note);
 
 
 }
