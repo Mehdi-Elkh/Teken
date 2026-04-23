@@ -84,25 +84,154 @@ void mode_ensaignant(){
     }
 }
 
-int main(){
-  int choix;
+#include <stdio.h>
+#include <string.h>
 
-  do{
-    printf("\n --- MENU PRINCIPAL--- \n");
-    printf("1. Mode Ensaignant \n");
-    printf("2. Mode Etudiant \n");
-    printf("3. Quitter \n");
-    scanf("%d", &choix);
+int main() {
+    int choix;
+    int sousChoix;
+    char motDePasse[20];
 
-    if(choix == 1){
-      mode_ensaignant();
-    }
-    else if(choix == 2){
-        mode_etudiant();
-    }
-    else{
-        printf("Ce que vous avez entré n'est pas valide, veuillez entrer un nombre entre 1 et 3. \n");
-    }
-  } while(choix != 3);
+    do {
+        printf("\n=== MENU GENERAL ===\n");
+        printf("1. Mode enseignant\n");
+        printf("2. Mode etudiant\n");
+        printf("3. Quitter\n");
+        printf("Votre choix : ");
+        scanf("%d", &choix);
 
+        if (choix == 1) {
+            printf("Entrez le mot de passe : ");
+            scanf("%s", motDePasse);
+
+            if (strcmp(motDePasse, "Teken2025") == 0) {
+                do {
+                    printf("\n--- MENU ENSEIGNANT ---\n");
+                    printf("1. Creer un QCM\n");
+                    printf("2. Voir les QCM\n");
+                    printf("3. Retour\n");
+                    printf("Votre choix : ");
+                    scanf("%d", &sousChoix);
+
+                    if (sousChoix == 1) {
+                        printf("Creation d'un QCM...\n");
+                    }
+                    else if (sousChoix == 2) {
+                        printf("Affichage des QCM...\n");
+                    }
+                    else if (sousChoix == 3) {
+                        printf("Retour au menu general.\n");
+                    }
+                    else {
+                        printf("Choix invalide.\n");
+                    }
+
+                } while (sousChoix != 3);
+            }
+            else {
+                printf("Mot de passe incorrect.\n");
+            }
+        }
+        else if (choix == 2) {
+            do {
+                printf("\n--- MENU ETUDIANT ---\n");
+                printf("1. Voir les QCM disponibles\n");
+                printf("2. Passer un QCM\n");
+                printf("3. Retour\n");
+                printf("Votre choix : ");
+                scanf("%d", &sousChoix);
+
+                if (sousChoix == 1) {
+                    printf("Liste des QCM disponibles...\n");
+                }
+                else if (sousChoix == 2) {
+                    printf("Passage du QCM...\n");
+                }
+                else if (sousChoix == 3) {
+                    printf("Retour au menu general.\n");
+                }
+                else {
+                    printf("Choix invalide.\n");
+                }
+
+            } while (sousChoix != 3);
+        }
+        else if (choix == 3) {
+            printf("Fermeture du programme.\n");
+        }
+        else {
+            printf("Choix invalide.\n");
+        }
+
+    } while (choix != 3);
+
+    return 0;
+}
+
+#include <stdio.h>
+#define NB_QUESTIONS 5
+#define NB_REPONSES 4
+
+typedef struct {
+    char question[200];
+    char reponses[NB_REPONSES][100];
+    int bonneReponse;
+} Question;
+
+int main() {
+    Question qcm[NB_QUESTIONS] = {
+        {
+            "Quelle est la capitale de la France ?",
+            {"Londres", "Paris", "Rome", "Madrid"},
+            1
+        },
+        {
+            "Combien font 2 + 2 ?",
+            {"3", "4", "5", "6"},
+            1
+        },
+        {
+            "Quelle est la couleur du ciel par temps clair ?",
+            {"Rouge", "Vert", "Bleu", "Jaune"},
+            2
+        },
+        {
+            "Quel langage utilise-t-on dans ce projet ?",
+            {"Python", "Java", "C", "HTML"},
+            2
+        },
+        {
+            "Combien y a-t-il de jours dans une semaine ?",
+            {"5", "6", "7", "8"},
+            2
+        }
+    };
+
+    int i, j;
+    int reponseUtilisateur;
+    int score = 0;
+
+    printf("=== QCM ===\n");
+
+    for (i = 0; i < NB_QUESTIONS; i++) {
+        printf("\nQuestion %d : %s\n", i + 1, qcm[i].question);
+
+        for (j = 0; j < NB_REPONSES; j++) {
+            printf("%d. %s\n", j + 1, qcm[i].reponses[j]);
+        }
+
+        printf("Votre reponse : ");
+        scanf("%d", &reponseUtilisateur);
+
+        if (reponseUtilisateur - 1 == qcm[i].bonneReponse) {
+            printf("Bonne reponse !\n");
+            score++;
+        } else {
+            printf("Mauvaise reponse.\n");
+        }
+    }
+
+    printf("\nScore final : %d/%d\n", score, NB_QUESTIONS);
+
+    return 0;
 }
