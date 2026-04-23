@@ -39,7 +39,7 @@ void mode_etudiant(){
 
 }
 
-vvoid mode_ensaignant(){
+void mode_ensaignant(){
 	char question[1000], reponse[1000] , choix[1000];
     int nb_questions, place; 
     int negatif , plusieur ;
