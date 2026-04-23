@@ -76,11 +76,11 @@ void mode_ensaignant(){
         //Verification de la variable
         for(int i = 1; i <= NB_CHOIX; i++){
             if( i == place ){
-                tab[i] = strdup(reponse);
+                strcpy(tab[i], reponse);
             }else{
         		printf("Veuillez ecrire un autre choix que vous voulez proposez : \n");
-    			scanf("%s", choix);
-            	tab[i] = strup(choix);
+            	fgets(choix, 1000 , stdin); 
+        		strcpy(tab[i], choix);
             }
         }    
         
