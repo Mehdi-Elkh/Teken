@@ -62,10 +62,10 @@ void mode_ensaignant(){
     	//Ca impactera la note au final de l'eleve donc faudra la calculer par rapport aux points negatifs (ou non) dans la fonction qui calculera la note)
     for(j = 1; j <= nb_questions ; j++){
         printf("Veuillez ecrire une question : \n");
-        scanf("%s", question);
+        fgets(question, 1000 ,stdlin) ;
         //Verification de la variable
     	printf("Veuillez entrez la bonne reponse : \n");
-		scanf("%s", reponse);
+        fgets(reponse, 1000 , stdlin);
     	//Verification de la variable
         printf("A quelle place voulez-vous que la bonne reponse soit ? \n");
         scanf("%d", &place);
