@@ -74,7 +74,7 @@ void mode_ensaignant(){
         scanf("%d", &place);
         getchar();
         //Verification de la variable
-        for(int i = 0; i < NB_CHOIX; i++){
+        for(int i = 1; i <= NB_CHOIX; i++){
             if( i == place ){
                 tab[i] = strdup(reponse);
             }else{
