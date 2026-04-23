@@ -60,17 +60,17 @@ void mode_ensaignant(){
     scanf("%d", &negatif);
     //Verification de la variable
     	//Ca impactera la note au final de l'eleve donc faudra la calculer par rapport aux points negatifs (ou non) dans la fonction qui calculera la note)
-    for(j = 1; j <= nb_questions ; j++){
+    for(int j = 1; j <= nb_questions ; j++){
         printf("Veuillez ecrire une question : \n");
-        fgets(question, 1000 ,stdlin) ;
+        fgets(question, 1000 ,stdin) ;
         //Verification de la variable
     	printf("Veuillez entrez la bonne reponse : \n");
-        fgets(reponse, 1000 , stdlin);
+        fgets(reponse, 1000 , stdin);
     	//Verification de la variable
         printf("A quelle place voulez-vous que la bonne reponse soit ? \n");
         scanf("%d", &place);
         //Verification de la variable
-        for(i = 0; i < NB_CHOIX; i++){
+        for(int i = 0; i < NB_CHOIX; i++){
             if( i = place ){
                 tab[i] = place;
             }else{
