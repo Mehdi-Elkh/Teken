@@ -1,5 +1,19 @@
 #include <stdlib.h>
 #include <stdio.h>
+#include <string.h>
+
+#define NB_CHOIX 3
+
+void shuffle(char *tab[], int n){
+    for(int i = n - 1; i > 0 ; i--){
+        int j = rand() % (i + 1);
+        char *tmp = tab[i];
+        tab[i] = tab[j];
+        tab[j] = tmp;
+        
+    }
+}
+
 void mode_etudiant(){
     int a;
     int note;
@@ -10,6 +24,7 @@ void mode_etudiant(){
     printf("2- 5\n");
     printf("3- 20\n");
     scanf("%d",&a);
+    //Verification de la variable
     if(a==1){
         printf("Faux\n");
     }
@@ -25,6 +40,49 @@ void mode_etudiant(){
 
 }
 
+void mode_ensaignant(){
+	char question, reponse , choix;
+    int nb_questions, place; 
+    int negatif , plusieur ;
+    cahr *tab[NB_CHOIX];
+    printf("mode ensaignant\n");
+    printf("Combien de questions voulez vous qu'il y ai dans votre QCM ? \n");
+    scanf("%d" , &nb_questions);
+    //Verification de la variable
+    printf("Souhaitez-vous qu'il y ai plusieurs reponses possible ? (oui : 1 / non : 0) \n");
+    scanf("%d", &plusieur);
+    //Verification de la variable
+		// if (plusieur = 1){
+  	    //     on demande pour les point negatif et on fait entrer un QCM avec plusieurs reponses possibles (utilisateur qui choisi le nombre a chaque fois)
+        //}else{
+        //     on demande pour les point negatif et on fait entrer un QCM avec une seul reponse possible comme j'ai fait juste en dessous
+        //}
+    printf("Souhaitez-vous mettre des points negatifs dans le QCM ? (oui : 1 / non : 0) \n");
+    scanf("%d", &negatif);
+    //Verification de la variable
+    	//Ca impactera la note au final de l'eleve donc faudra la calculer par rapport aux points negatifs (ou non) dans la fonction qui calculera la note)
+    for(j = 1; j <= nb_questions ; j++){
+        printf("Veuillez ecrire une question : \n");
+        scanf("%s", question);
+        //Verification de la variable
+    	printf("Veuillez entrez la bonne reponse : \n");
+		scanf("%s", reponse);
+    	//Verification de la variable
+        printf("A quelle place voulez-vous que la bonne reponse soit ? \n");
+        scanf("%d", &place);
+        //Verification de la variable
+        for(i = 0; i < NB_CHOIX; i++){
+            if( i = place ){
+                tab[i] = place;
+            }else{
+        		printf("Veuillez ecrire un autre choix que vous voulez proposez : \n");
+    			scanf("%s", choix);
+            	tab[i] = choix;
+            }
+        }    
+        
+    }
+}
 
 int main(){
   int choix;
@@ -37,7 +95,7 @@ int main(){
     scanf("%d", &choix);
 
     if(choix == 1){
-      printf("Mode enseignant \n");
+      mode_ensaignant();
     }
     else if(choix == 2){
         mode_etudiant();
