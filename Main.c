@@ -72,6 +72,7 @@ void mode_ensaignant(){
     	//Verification de la variable
         printf("A quelle place voulez-vous que la bonne reponse soit ? \n");
         scanf("%d", &place);
+        getchar();
         //Verification de la variable
         for(int i = 0; i < NB_CHOIX; i++){
             if( i == place ){
