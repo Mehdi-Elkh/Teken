@@ -43,7 +43,7 @@ void mode_ensaignant(){
 	char question, reponse , choix;
     int nb_questions, place; 
     int negatif , plusieur ;
-    cahr *tab[NB_CHOIX];
+	char *tab[NB_CHOIX];
     printf("mode ensaignant\n");
     printf("Combien de questions voulez vous qu'il y ai dans votre QCM ? \n");
     scanf("%d" , &nb_questions);
