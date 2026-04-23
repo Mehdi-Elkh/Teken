@@ -39,17 +39,19 @@ void mode_etudiant(){
 
 }
 
-void mode_ensaignant(){
-	char question, reponse , choix;
+vvoid mode_ensaignant(){
+	char question[1000], reponse[1000] , choix[1000];
     int nb_questions, place; 
     int negatif , plusieur ;
 	char *tab[NB_CHOIX];
     printf("mode ensaignant\n");
     printf("Combien de questions voulez vous qu'il y ai dans votre QCM ? \n");
     scanf("%d" , &nb_questions);
+    getchar();
     //Verification de la variable
     printf("Souhaitez-vous qu'il y ai plusieurs reponses possible ? (oui : 1 / non : 0) \n");
     scanf("%d", &plusieur);
+    getchar();
     //Verification de la variable
 		// if (plusieur = 1){
   	    //     on demande pour les point negatif et on fait entrer un QCM avec plusieurs reponses possibles (utilisateur qui choisi le nombre a chaque fois)
@@ -58,6 +60,7 @@ void mode_ensaignant(){
         //}
     printf("Souhaitez-vous mettre des points negatifs dans le QCM ? (oui : 1 / non : 0) \n");
     scanf("%d", &negatif);
+    getchar();
     //Verification de la variable
     	//Ca impactera la note au final de l'eleve donc faudra la calculer par rapport aux points negatifs (ou non) dans la fonction qui calculera la note)
     for(int j = 1; j <= nb_questions ; j++){
@@ -71,8 +74,8 @@ void mode_ensaignant(){
         scanf("%d", &place);
         //Verification de la variable
         for(int i = 0; i < NB_CHOIX; i++){
-            if( i = place ){
-                tab[i] = place;
+            if( i == place ){
+                tab[i] = reponse;
             }else{
         		printf("Veuillez ecrire un autre choix que vous voulez proposez : \n");
     			scanf("%s", choix);
