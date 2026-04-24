@@ -2,7 +2,8 @@
 #include <stdio.h>
 #include <string.h>
 
-#define NB_CHOIX 3
+#define NB_CHOIX 4
+#define TAILLE 1000
 
 //void shuffle(char *tab[], int n){
 //    for(int i = n - 1; i > 0 ; i--){
@@ -12,6 +13,19 @@
 //        tab[j] = tmp;       
 //    }
 //}
+
+typedef struct {
+	char intitule[TAILLE];
+    char choix[NB_CHOIX][TAILLE];
+    int place;
+} Question;
+
+typedef{
+    int nb_questions;
+    Question questions[100];
+} QCM;
+
+
 
 void mode_etudiant(){
     int a;
@@ -40,6 +54,7 @@ void mode_etudiant(){
 }
 
 void mode_ensaignant(){
+    QCM qcm;
 	char question[1000], reponse[1000] , choix[1000];
     int nb_questions, place; 
     int negatif , plusieur ;
@@ -86,6 +101,42 @@ void mode_ensaignant(){
         
     }
 }
+
+void construct_QCM(QCM *qcm){
+    
+    printf("Combien de questions voulez vous qu'il y ai dans votre QCM ? \n");
+    scanf("%d" , &qcm.nb_questions);
+    getchar();
+    //Verification de la variable
+    for (int j = 1 ; j <= qcm.nb_questions ; j++){
+		printf("Veuillez ecrire une question : \n");
+        fgets(qcm.question[j].intitule, TAILLE ,stdin);
+        //Verification de la variable
+        printf("A quelle place voulez-vous que la bonne reponse soit ? \n");
+        scanf("%d", &qcm.questions[j].place);
+        getchar();
+        //Verification de la variable
+        for(int i = 1 ; i < NB_CHOIX ; i++){
+            printf("Veuillez ecrire le choix %d : \n", i);
+            fgets(qcm.questions[j].choix[i], TAILLE , stdin); 
+            //Verification de la variable
+        }
+    }
+    
+}
+
+void fichier_qcm(QCM *qcm){
+    
+    FILE *f = fopen("qcm.txt" , "w");
+    
+    
+    for(int j = 1 ; j <= qcm.nb_questions ; j++){
+        fptintf(f , "%d.%s" , j , qcm.question[j].intitule);
+    }
+    
+}
+
+
 
 
 int main() {
