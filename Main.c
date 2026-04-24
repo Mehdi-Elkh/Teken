@@ -15,6 +15,7 @@
 //}
 
 typedef struct {
+	int numero;
 	char intitule[TAILLE];
     char choix[NB_CHOIX][TAILLE];
     int place;
@@ -67,8 +68,9 @@ void construct_QCM(QCM *qcm){
     getchar();
     //Verification de la variable
     for (int j = 1 ; j <= qcm.nb_questions ; j++){
+    	qcm.question[j].numero = j;
 		printf("Veuillez ecrire une question : \n");
-        fgets(qcm.question[j].intitule, TAILLE ,stdin);
+    	fgets(qcm.question[j].intitule, TAILLE ,stdin);
         //Verification de la variable
         for(int i = 1 ; i < NB_CHOIX ; i++){
             printf("Veuillez ecrire le choix %d : \n", i);
@@ -92,7 +94,7 @@ void fichier_QCM(QCM *qcm){
     //Faudra ecrire si le qcm a plusieur reponses possibles et si il est a point negatif aussi pour pouvoir directement rgarder ici pour le calcul de la note
     
     for(int j = 1 ; j <= qcm.nb_questions ; j++){
-        fprintf(f , "%d.%s" , j , qcm.question[j].intitule);
+        fprintf(f , "%d.%s" , qcm.question[j].numero , qcm.question[j].intitule);
         fprintf(f, "%d\n" , qcm.question[j].place);
         
         for(int i = 1 ; i <= NB_CHOIX , i++){
@@ -111,6 +113,7 @@ void lire_QCM(QCM *qcm){
     //Faudra lire si le qcm a plusieur reponses possibles et si il est a point negatif aussi pour pouvoir directement regarder ici pour le calcul de la note
     
     for(int j = 1 ; j <= qcm.nb_questions ; j++){
+        fscanf(f, "%d ", &qcm.questions[j].numero);
         fgets(qcm.question[j].intitule, TAILLE , f);
         fscanf(f, "%d\n" , &qcm.question[j].place);
         
