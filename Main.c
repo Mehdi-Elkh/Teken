@@ -89,7 +89,10 @@ void construct_QCM(QCM *qcm){
 void fichier_QCM(QCM *qcm){
     
     FILE *f = fopen("qcm.txt" , "w");
-    
+    if (f == NULL){
+   		printf("Erreur ouverture fichier\n");
+		return;
+    }
     fprintf(f, "%d" , (*qcm).nb_questions);
     //Faudra ecrire si le qcm a plusieur reponses possibles et si il est a point negatif aussi pour pouvoir directement rgarder ici pour le calcul de la note
     
@@ -108,7 +111,10 @@ void fichier_QCM(QCM *qcm){
 void lire_QCM(QCM *qcm){
     
     FILE *f = fopen("qcm.txt" , "r");
-    
+    if (f == NULL){
+   		printf("Erreur ouverture fichier\n");
+		return;
+    }
 	fscanf(f, "%d" , &(*qcm).nb_questions);
     //Faudra lire si le qcm a plusieur reponses possibles et si il est a point negatif aussi pour pouvoir directement regarder ici pour le calcul de la note
     
