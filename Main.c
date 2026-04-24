@@ -55,51 +55,8 @@ void mode_etudiant(){
 
 void mode_ensaignant(){
     QCM qcm;
-	char question[1000], reponse[1000] , choix[1000];
-    int nb_questions, place; 
-    int negatif , plusieur ;
-	char *tab[NB_CHOIX];
-    printf("mode ensaignant\n");
-    printf("Combien de questions voulez vous qu'il y ai dans votre QCM ? \n");
-    scanf("%d" , &nb_questions);
-    getchar();
-    //Verification de la variable
-    printf("Souhaitez-vous qu'il y ai plusieurs reponses possible ? (oui : 1 / non : 0) \n");
-    scanf("%d", &plusieur);
-    getchar();
-    //Verification de la variable
-		// if (plusieur = 1){
-  	    //     on demande pour les point negatif et on fait entrer un QCM avec plusieurs reponses possibles (utilisateur qui choisi le nombre a chaque fois)
-        //}else{
-        //     on demande pour les point negatif et on fait entrer un QCM avec une seul reponse possible comme j'ai fait juste en dessous
-        //}
-    printf("Souhaitez-vous mettre des points negatifs dans le QCM ? (oui : 1 / non : 0) \n");
-    scanf("%d", &negatif);
-    getchar();
-    //Verification de la variable
-    	//Ca impactera la note au final de l'eleve donc faudra la calculer par rapport aux points negatifs (ou non) dans la fonction qui calculera la note)
-    for(int j = 1; j <= nb_questions ; j++){
-        printf("Veuillez ecrire une question : \n");
-        fgets(question, 1000 ,stdin) ;
-        //Verification de la variable
-    	printf("Veuillez entrez la bonne reponse : \n");
-        fgets(reponse, 1000 , stdin);
-    	//Verification de la variable
-        printf("A quelle place voulez-vous que la bonne reponse soit ? \n");
-        scanf("%d", &place);
-        getchar();
-        //Verification de la variable
-        for(int i = 1; i <= NB_CHOIX; i++){
-            if( i == place ){
-                strcpy(tab[i], reponse);
-            }else{
-        		printf("Veuillez ecrire un autre choix que vous voulez proposez : \n");
-            	fgets(choix, 1000 , stdin); 
-        		strcpy(tab[i], choix);
-            }
-        }    
-        
-    }
+	construct_QCM(&qcm);
+    fichier_qcm(1qcm);
 }
 
 void construct_QCM(QCM *qcm){
@@ -129,12 +86,18 @@ void fichier_qcm(QCM *qcm){
     
     FILE *f = fopen("qcm.txt" , "w");
     
+    fprintf(f, "%d" , qcm.qcm.nb_questions);
+    //Faudra ecrire si le qcm a plusieur reponses possibles et si il est a point negatif aussi pour pouvoir directement rgarder ici pour le calcul de la note
     
     for(int j = 1 ; j <= qcm.nb_questions ; j++){
-        fptintf(f , "%d.%s" , j , qcm.question[j].intitule);
-        .
+        fprintf(f , "%d.%s" , j , qcm.question[j].intitule);
+        fprintf(f, "%d" , qcm.question[j].place);
+        
+        for(int i = 1 ; i <= NB_CHOIX , i++){
+            fprintf(f, "%s" , qcm.questions[j].choix[]);
+        }
     }
-    
+    fclose(f);
 }
 
 
