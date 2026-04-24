@@ -119,7 +119,7 @@ void lire_QCM(QCM *qcm){
     //Faudra lire si le qcm a plusieur reponses possibles et si il est a point negatif aussi pour pouvoir directement regarder ici pour le calcul de la note
     
     for(int j = 0 ; j < (*qcm).nb_questions ; j++){
-        fscanf(f, "%d ", &(*qcm).question[j].numero);
+        fscanf(f, "%d.", &(*qcm).question[j].numero);
         fgets((*qcm).question[j].intitule, TAILLE , f);
         fscanf(f, "%d\n" , &(*qcm).question[j].place);
         
