@@ -109,7 +109,7 @@ void lire_QCM(QCM *qcm){
     
     FILE *f = fopen("qcm.txt" , "r");
     
-	fscanf(f, "%d" , (*qcm).nb_questions);
+	fscanf(f, "%d" , &(*qcm).nb_questions);
     //Faudra lire si le qcm a plusieur reponses possibles et si il est a point negatif aussi pour pouvoir directement regarder ici pour le calcul de la note
     
     for(int j = 0 ; j < (*qcm).nb_questions ; j++){
