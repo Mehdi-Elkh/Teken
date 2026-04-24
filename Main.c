@@ -56,7 +56,8 @@ void mode_etudiant(){
 void mode_ensaignant(){
     QCM qcm;
 	construct_QCM(&qcm);
-    fichier_qcm(&qcm);
+    fichier_QCM(&qcm);
+    
 }
 
 void construct_QCM(QCM *qcm){
@@ -82,7 +83,8 @@ void construct_QCM(QCM *qcm){
     
 }
 
-void fichier_qcm(QCM *qcm){
+
+void fichier_QCM(QCM *qcm){
     
     FILE *f = fopen("qcm.txt" , "w");
     
@@ -91,16 +93,34 @@ void fichier_qcm(QCM *qcm){
     
     for(int j = 1 ; j <= qcm.nb_questions ; j++){
         fprintf(f , "%d.%s" , j , qcm.question[j].intitule);
-        fprintf(f, "%d" , qcm.question[j].place);
+        fprintf(f, "%d\n" , qcm.question[j].place);
         
         for(int i = 1 ; i <= NB_CHOIX , i++){
-            fprintf(f, "%s" , qcm.questions[j].choix[]);
+            fprintf(f, "%s" , qcm.questions[j].choix[i]);
         }
     }
     fclose(f);
 }
 
 
+void lire_QCM(QCM *qcm){
+    
+    FILE *f = fopen("qcm.txt" , "r");
+    
+	fscanf(f, "%d" , qcm.qcm.nb_questions);
+    //Faudra lire si le qcm a plusieur reponses possibles et si il est a point negatif aussi pour pouvoir directement regarder ici pour le calcul de la note
+    
+    for(int j = 1 ; j <= qcm.nb_questions ; j++){
+        fgets(qcm.question[j].intitule, TAILLE , f);
+        fscanf(f, "%d\n" , &qcm.question[j].place);
+        
+        for(int i = 1 ; i <= NB_CHOIX , i++){
+            fgets(qcm.questions[j].choix[i], TAILLE , f);
+        }
+    }
+    fclose(f);
+}
+        }
 
 
 int main() {
