@@ -56,7 +56,7 @@ void mode_etudiant(){
 void mode_ensaignant(){
     QCM qcm;
 	construct_QCM(&qcm);
-    fichier_qcm(1qcm);
+    fichier_qcm(&qcm);
 }
 
 void construct_QCM(QCM *qcm){
@@ -69,15 +69,15 @@ void construct_QCM(QCM *qcm){
 		printf("Veuillez ecrire une question : \n");
         fgets(qcm.question[j].intitule, TAILLE ,stdin);
         //Verification de la variable
-        printf("A quelle place voulez-vous que la bonne reponse soit ? \n");
-        scanf("%d", &qcm.questions[j].place);
-        getchar();
-        //Verification de la variable
         for(int i = 1 ; i < NB_CHOIX ; i++){
             printf("Veuillez ecrire le choix %d : \n", i);
             fgets(qcm.questions[j].choix[i], TAILLE , stdin); 
             //Verification de la variable
         }
+        printf("A quelle place est la bonne reponse  ? \n");
+        scanf("%d", &qcm.questions[j].place);
+        getchar();
+        //Verification de la variable
     }
     
 }
