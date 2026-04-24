@@ -132,6 +132,7 @@ void fichier_qcm(QCM *qcm){
     
     for(int j = 1 ; j <= qcm.nb_questions ; j++){
         fptintf(f , "%d.%s" , j , qcm.question[j].intitule);
+        .
     }
     
 }
