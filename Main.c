@@ -23,7 +23,7 @@ typedef struct {
 
 typedef{
     int nb_questions;
-    Question questions[100];
+    Question question[100];
 } QCM;
 
 
@@ -64,21 +64,21 @@ void mode_ensaignant(){
 void construct_QCM(QCM *qcm){
     
     printf("Combien de questions voulez vous qu'il y ai dans votre QCM ? \n");
-    scanf("%d" , &qcm.nb_questions);
+    scanf("%d" , &(*qcm).nb_questions);
     getchar();
     //Verification de la variable
-    for (int j = 1 ; j <= qcm.nb_questions ; j++){
-    	qcm.question[j].numero = j;
+    for (int j = 0 ; j < (*qcm).nb_questions ; j++){
+    	(*qcm).question[j].numero = j + 1;
 		printf("Veuillez ecrire une question : \n");
-    	fgets(qcm.question[j].intitule, TAILLE ,stdin);
+    	fgets((*qcm).question[j].intitule, TAILLE ,stdin);
         //Verification de la variable
-        for(int i = 1 ; i < NB_CHOIX ; i++){
-            printf("Veuillez ecrire le choix %d : \n", i);
-            fgets(qcm.questions[j].choix[i], TAILLE , stdin); 
+        for(int i = 0 ; i < NB_CHOIX ; i++){
+            printf("Veuillez ecrire le choix %d : \n", i +1);
+            fgets((*qcm).question[j].choix[i], TAILLE , stdin); 
             //Verification de la variable
         }
         printf("A quelle place est la bonne reponse  ? \n");
-        scanf("%d", &qcm.questions[j].place);
+        scanf("%d", &(*qcm).question[j].place);
         getchar();
         //Verification de la variable
     }
@@ -90,15 +90,15 @@ void fichier_QCM(QCM *qcm){
     
     FILE *f = fopen("qcm.txt" , "w");
     
-    fprintf(f, "%d" , qcm.qcm.nb_questions);
+    fprintf(f, "%d" , (*qcm).nb_questions);
     //Faudra ecrire si le qcm a plusieur reponses possibles et si il est a point negatif aussi pour pouvoir directement rgarder ici pour le calcul de la note
     
-    for(int j = 1 ; j <= qcm.nb_questions ; j++){
-        fprintf(f , "%d.%s" , qcm.question[j].numero , qcm.question[j].intitule);
-        fprintf(f, "%d\n" , qcm.question[j].place);
+    for(int j = 0 ; j < (*qcm).nb_questions ; j++){
+        fprintf(f , "%d.%s" , (*qcm).question[j].numero , (*qcm).question[j].intitule);
+        fprintf(f, "%d\n" , (*qcm).question[j].place);
         
-        for(int i = 1 ; i <= NB_CHOIX , i++){
-            fprintf(f, "%s" , qcm.questions[j].choix[i]);
+        for(int i = 0 ; i < NB_CHOIX ; i++){
+            fprintf(f, "%s" , (*qcm).question[j].choix[i]);
         }
     }
     fclose(f);
@@ -109,16 +109,16 @@ void lire_QCM(QCM *qcm){
     
     FILE *f = fopen("qcm.txt" , "r");
     
-	fscanf(f, "%d" , qcm.qcm.nb_questions);
+	fscanf(f, "%d" , (*qcm).nb_questions);
     //Faudra lire si le qcm a plusieur reponses possibles et si il est a point negatif aussi pour pouvoir directement regarder ici pour le calcul de la note
     
-    for(int j = 1 ; j <= qcm.nb_questions ; j++){
-        fscanf(f, "%d ", &qcm.questions[j].numero);
-        fgets(qcm.question[j].intitule, TAILLE , f);
-        fscanf(f, "%d\n" , &qcm.question[j].place);
+    for(int j = 0 ; j < (*qcm).nb_questions ; j++){
+        fscanf(f, "%d ", &(*qcm).question[j].numero);
+        fgets((*qcm).question[j].intitule, TAILLE , f);
+        fscanf(f, "%d\n" , &(*qcm).question[j].place);
         
-        for(int i = 1 ; i <= NB_CHOIX , i++){
-            fgets(qcm.questions[j].choix[i], TAILLE , f);
+        for(int i = 0 ; i < NB_CHOIX ; i++){
+            fgets((*qcm).question[j].choix[i], TAILLE , f);
         }
     }
     fclose(f);
