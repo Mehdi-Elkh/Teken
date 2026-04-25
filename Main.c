@@ -23,6 +23,8 @@ typedef struct {
 
 typedef{
     int nb_questions;
+    int negatif;
+    int plusieurs; 
     Question question[100];
 } QCM;
 
@@ -95,7 +97,7 @@ void fichier_QCM(QCM *qcm){
     }
     fprintf(f, "%d" , (*qcm).nb_questions);
     //Faudra ecrire si le qcm a plusieur reponses possibles et si il est a point negatif aussi pour pouvoir directement rgarder ici pour le calcul de la note
-    
+    //Ou pas on peut juste traiter la structure
     for(int j = 0 ; j < (*qcm).nb_questions ; j++){
         fprintf(f , "%d.%s" , (*qcm).question[j].numero , (*qcm).question[j].intitule);
         fprintf(f, "%d\n" , (*qcm).question[j].place);
@@ -117,7 +119,7 @@ void lire_QCM(QCM *qcm){
     }
 	fscanf(f, "%d" , &(*qcm).nb_questions);
     //Faudra lire si le qcm a plusieur reponses possibles et si il est a point negatif aussi pour pouvoir directement regarder ici pour le calcul de la note
-    
+    //Ou pas on peut juste traiter la structure
     for(int j = 0 ; j < (*qcm).nb_questions ; j++){
         fscanf(f, "%d.", &(*qcm).question[j].numero);
         fgets((*qcm).question[j].intitule, TAILLE , f);
@@ -136,9 +138,12 @@ int note(QCM *qcm , int *reponses){
     int note;
     for (int j = 0 ; j < (*qcm).nb_questions ; j++){
         if ( reponses[j] == (*qcm).questions([j].place){
-            
+            note++ ; 
+        }else if (negatif){
+            note-- ; 
         }
     }
+    return note;
 }
 
 
