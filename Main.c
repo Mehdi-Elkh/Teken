@@ -129,7 +129,17 @@ void lire_QCM(QCM *qcm){
     }
     fclose(f);
 }
+
+
+
+int note(QCM *qcm , int *reponses){
+    int note;
+    for (int j = 0 ; j < (*qcm).nb_questions ; j++){
+        if ( reponses[j] == (*qcm).questions([j].place){
+            
         }
+    }
+}
 
 
 int main() {
