@@ -142,7 +142,7 @@ void mode_ensaignant(){
     
 }
 
-int note(QCM *qcm , int *reponses){
+/*int note(QCM *qcm , int *reponses){
     int note;
     for (int j = 0 ; j < (*qcm).nb_questions ; j++){
         if ( reponses[j] == (*qcm).questions([j].place){
@@ -152,7 +152,7 @@ int note(QCM *qcm , int *reponses){
         }
     }
     return note;
-}
+}*/
 
 
 int main() {
