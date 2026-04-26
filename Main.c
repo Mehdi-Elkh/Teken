@@ -60,6 +60,7 @@ void mode_etudiant(){
     QCM qcm ;
     int note , a;
     note = 0;
+	int resulta;
     printf("mode étudiant\n");
 	lire_QCM(&qcm);
 	for( int i=0; i < qcm.nb_questions;i++){
@@ -71,8 +72,11 @@ void mode_etudiant(){
 			printf("%s",qcm.question[i].choix[j]);
 		}
 		printf("Votre réponse :");
-		scanf("%d",&a);
-
+		resulta= scanf("%d",&a);
+		if(resulta!=1){
+			printf("faux);
+			while(getchar() != '\n');	
+		 }
 	    if(a==qcm.question[i].place){
 	        printf("Vrai\n");
 			note = note +1;
