@@ -14,6 +14,25 @@
 //    }
 //}
 
+
+
+typedef struct {
+	int numero;
+	char intitule[TAILLE];
+    char choix[NB_CHOIX][TAILLE];
+    int place;
+} Question;
+
+typedef struct {
+    int nb_questions;
+    int negatif;
+    int plusieurs; 
+    Question question[100];
+} QCM;
+
+
+
+// BOUGEZ PAS la fonction d'ici sinon j'ai un probleme de declaration dans le mode étudiant 
 void lire_QCM(QCM *qcm){
     
     FILE *f = fopen("qcm.txt" , "r");
@@ -35,22 +54,6 @@ void lire_QCM(QCM *qcm){
     }
     fclose(f);
 }
-
-
-typedef struct {
-	int numero;
-	char intitule[TAILLE];
-    char choix[NB_CHOIX][TAILLE];
-    int place;
-} Question;
-
-typedef struct {
-    int nb_questions;
-    int negatif;
-    int plusieurs; 
-    Question question[100];
-} QCM;
-
 
 
 void mode_etudiant(){
