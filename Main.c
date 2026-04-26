@@ -58,12 +58,12 @@ void mode_etudiant(){
     int note , a;
     note = 0;
     printf("mode étudiant\n");
-	lire_QCM();
+	lire_QCM(&qcm);
 	for( int i=0; i < qcm.nb_questions;i++){
 		printf("\nQuestion %d :\n",qcm.question[i].numero);
 		printf("%s", qcm.question[i].intitule);
 
-		for (int j=0,j< NB_CHOIX;j++){
+		for (int j=0;j< NB_CHOIX;j++){
 			printf("%d",j+1);
 			printf("%s",qcm.question[i].choix[j]);
 		}
@@ -72,7 +72,7 @@ void mode_etudiant(){
 
 	    if(a==qcm.question[i].place){
 	        printf("Vrai\n");
-			note = note +1
+			note = note +1;
 	    
 	    }
 	    else{
