@@ -66,7 +66,8 @@ void mode_etudiant(){
 		resulta= scanf("%d",&a);
 		if(resulta!=1){
 			printf("faux");
-			while(getchar() != '\n');	
+			while(getchar() != '\n');
+            continue;	
 		 }
 	    if(a==qcm.question[i].place){
 	        printf("Vrai\n");
