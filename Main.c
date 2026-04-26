@@ -59,7 +59,7 @@ void mode_etudiant(){
 		printf("%s", qcm.question[i].intitule);
 
 		for (int j=0;j< NB_CHOIX;j++){
-			printf("%d",j+1);
+			printf("%d-",j+1);
 			printf("%s",qcm.question[i].choix[j]);
 		}
 		printf("Votre réponse :");
@@ -78,7 +78,7 @@ void mode_etudiant(){
 	      }
 	    
 	}
-	 printf("votre note est %d \n",note);
+	 printf("votre note est %d sur %d \n",note, qcm.nb_questions);
 
 }
 
