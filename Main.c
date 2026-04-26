@@ -21,7 +21,7 @@ typedef struct {
     int place;
 } Question;
 
-typedef{
+typedef struct {
     int nb_questions;
     int negatif;
     int plusieurs; 
