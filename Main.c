@@ -1,4 +1,4 @@
-.#include <stdlib.h>
+#include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
 
@@ -13,6 +13,29 @@
 //        tab[j] = tmp;       
 //    }
 //}
+
+void lire_QCM(QCM *qcm){
+    
+    FILE *f = fopen("qcm.txt" , "r");
+    if (f == NULL){
+   		printf("Erreur ouverture fichier\n");
+		return;
+    }
+	fscanf(f, "%d" , &(*qcm).nb_questions);
+    //Faudra lire si le qcm a plusieur reponses possibles et si il est a point negatif aussi pour pouvoir directement regarder ici pour le calcul de la note
+    //Ou pas on peut juste traiter la structure
+    for(int j = 0 ; j < (*qcm).nb_questions ; j++){
+        fscanf(f, "%d.", &(*qcm).question[j].numero);
+        fgets((*qcm).question[j].intitule, TAILLE , f);
+        fscanf(f, "%d\n" , &(*qcm).question[j].place);
+        
+        for(int i = 0 ; i < NB_CHOIX ; i++){
+            fgets((*qcm).question[j].choix[i], TAILLE , f);
+        }
+    }
+    fclose(f);
+}
+
 
 typedef struct {
 	int numero;
@@ -31,28 +54,33 @@ typedef struct {
 
 
 void mode_etudiant(){
-    int a;
-    int note;
+    QCM qcm ;
+    int note , a;
     note = 0;
     printf("mode étudiant\n");
-    printf("quelle est la racine carré de 25?\n");
-    printf("1- 10\n");
-    printf("2- 5\n");
-    printf("3- 20\n");
-    scanf("%d",&a);
-    //Verification de la variable
-    if(a==1){
-        printf("Faux\n");
-    }
-    else if(a==2){
-        printf("Vrai\n");
-        note = note + 1;
-    }
-    else{
-        printf("Faux\n");
-      }
-    printf("votre note est %d \n",note);
+	lire_QCM();
+	for( int i=0; i < qcm.nb_questions;i++){
+		printf("\nQuestion %d :\n",qcm.question[i].numero);
+		printf("%s", qcm.question[i].intitule);
 
+		for (int j=0,j< NB_CHOIX;j++){
+			printf("%d",j+1);
+			printf("%s",qcm.question[i].choix[j]);
+		}
+		printf("Votre réponse :");
+		scanf("%d",&a);
+
+	    if(a==qcm.question[i].place){
+	        printf("Vrai\n");
+			note = note +1
+	    
+	    }
+	    else{
+	        printf("Faux\n");
+	      }
+	    
+	}
+	 printf("votre note est %d \n",note);
 
 }
 
@@ -102,30 +130,6 @@ void fichier_QCM(QCM *qcm){
     }
     fclose(f);
 }
-
-
-void lire_QCM(QCM *qcm){
-    
-    FILE *f = fopen("qcm.txt" , "r");
-    if (f == NULL){
-   		printf("Erreur ouverture fichier\n");
-		return;
-    }
-	fscanf(f, "%d" , &(*qcm).nb_questions);
-    //Faudra lire si le qcm a plusieur reponses possibles et si il est a point negatif aussi pour pouvoir directement regarder ici pour le calcul de la note
-    //Ou pas on peut juste traiter la structure
-    for(int j = 0 ; j < (*qcm).nb_questions ; j++){
-        fscanf(f, "%d.", &(*qcm).question[j].numero);
-        fgets((*qcm).question[j].intitule, TAILLE , f);
-        fscanf(f, "%d\n" , &(*qcm).question[j].place);
-        
-        for(int i = 0 ; i < NB_CHOIX ; i++){
-            fgets((*qcm).question[j].choix[i], TAILLE , f);
-        }
-    }
-    fclose(f);
-}
-
 
 
 void mode_ensaignant(){
