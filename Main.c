@@ -56,12 +56,6 @@ void mode_etudiant(){
 
 }
 
-void mode_ensaignant(){
-    QCM qcm;
-	construct_QCM(&qcm);
-    fichier_QCM(&qcm);
-    
-}
 
 void construct_QCM(QCM *qcm){
     
@@ -95,7 +89,7 @@ void fichier_QCM(QCM *qcm){
    		printf("Erreur ouverture fichier\n");
 		return;
     }
-    fprintf(f, "%d" , (*qcm).nb_questions);
+    fprintf(f, "%d\n" , (*qcm).nb_questions);
     //Faudra ecrire si le qcm a plusieur reponses possibles et si il est a point negatif aussi pour pouvoir directement rgarder ici pour le calcul de la note
     //Ou pas on peut juste traiter la structure
     for(int j = 0 ; j < (*qcm).nb_questions ; j++){
@@ -133,6 +127,13 @@ void lire_QCM(QCM *qcm){
 }
 
 
+
+void mode_ensaignant(){
+    QCM qcm;
+	construct_QCM(&qcm);
+    fichier_QCM(&qcm);
+    
+}
 
 int note(QCM *qcm , int *reponses){
     int note;
