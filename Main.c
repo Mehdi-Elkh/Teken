@@ -74,7 +74,7 @@ void mode_etudiant(){
 		printf("Votre réponse :");
 		resulta= scanf("%d",&a);
 		if(resulta!=1){
-			printf("faux);
+			printf("faux");
 			while(getchar() != '\n');	
 		 }
 	    if(a==qcm.question[i].place){
