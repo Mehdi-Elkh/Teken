@@ -5,15 +5,6 @@
 #define NB_CHOIX 4
 #define TAILLE 1000
 
-//void shuffle(char *tab[], int n){
-//    for(int i = n - 1; i > 0 ; i--){
-//        int j = rand() % (i + 1);
-//        char *tmp = tab[i];
-//        tab[i] = tab[j];
-//        tab[j] = tmp;       
-//    }
-//}
-
 
 
 typedef struct {
@@ -148,8 +139,8 @@ void mode_ensaignant(){
 
 /*int note(QCM *qcm , int *reponses){
     int note;
-    for (int j = 0 ; j < (*qcm).nb_questions ; j++){
-        if ( reponses[j] == (*qcm).questions([j].place){
+    for (int j = 0 ; j < qcm.nb_questions ; j++){
+        if ( reponses[j] == qcm.questions([j].place){
             note++ ; 
         }else if (negatif){
             note-- ; 
