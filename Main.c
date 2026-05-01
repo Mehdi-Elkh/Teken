@@ -2,7 +2,7 @@
 #include <stdio.h>
 #include <string.h>
 
-#define NB_CHOIX 4
+#define NB_CHOIX 5
 #define TAILLE 1000
 
 
@@ -96,7 +96,7 @@ void construct_QCM(QCM *qcm){
     	fgets((*qcm).question[j].intitule, TAILLE ,stdin);
         //Verification de la variable
         for(int i = 0 ; i < NB_CHOIX ; i++){
-            printf("Veuillez ecrire le choix %d : \n", i +1);
+            printf("Veuillez ecrire le choix %d (5èm: \n", i +1);
             fgets((*qcm).question[j].choix[i], TAILLE , stdin); 
             //Verification de la variable
         }
