@@ -69,15 +69,32 @@ void mode_etudiant(){
 			while(getchar() != '\n');
             continue;	
 		 }
-	    if(a==qcm.question[i].place){
-	        printf("Vrai\n");
-			note = note +1;
+        if(qcm.negatif == 1){
+	    	if(a==qcm.question[i].place){
+	      		printf("Vrai\n");
+				note = note +1;
 	    
+	    	}
+            else if(a == 5){
+                note = note;
+                printf("Question passée");
+            }
+	    	else{
+	        	printf("Faux\n");
+                note--;
+	      	}
 	    }
-	    else{
-	        printf("Faux\n");
-	      }
-	    
+        else{
+	    	if(a==qcm.question[i].place){
+	      		printf("Vrai\n");
+				note = note +1;
+	   
+	    	}
+	    	else{
+	        	printf("Faux\n");
+                
+	      	}
+        }
 	}
 	 printf("votre note est %d sur %d \n",note, qcm.nb_questions);
 
@@ -90,13 +107,17 @@ void construct_QCM(QCM *qcm){
     scanf("%d" , &(*qcm).nb_questions);
     getchar();
     //Verification de la variable
+    printf("Votre QCM est-il a points negatif ? (oui = 1 ; non = 0) \n");
+    scanf("%d" , &(*qcm).negatif);
+    getchar();
+    //Verification de la variable
     for (int j = 0 ; j < (*qcm).nb_questions ; j++){
     	(*qcm).question[j].numero = j + 1;
 		printf("Veuillez ecrire une question : \n");
     	fgets((*qcm).question[j].intitule, TAILLE ,stdin);
         //Verification de la variable
         for(int i = 0 ; i < NB_CHOIX ; i++){
-            printf("Veuillez ecrire le choix %d (5èm: \n", i +1);
+            printf("Veuillez ecrire le choix %d (5ème choix = passer la question) : \n", i +1);
             fgets((*qcm).question[j].choix[i], TAILLE , stdin); 
             //Verification de la variable
         }
@@ -117,6 +138,7 @@ void fichier_QCM(QCM *qcm){
 		return;
     }
     fprintf(f, "%d\n" , (*qcm).nb_questions);
+    fprintf(f, "%d\n" , (*qcm).negatif);
     //Faudra ecrire si le qcm a plusieur reponses possibles et si il est a point negatif aussi pour pouvoir directement rgarder ici pour le calcul de la note
     //Ou pas on peut juste traiter la structure
     for(int j = 0 ; j < (*qcm).nb_questions ; j++){
