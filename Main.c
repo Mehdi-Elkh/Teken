@@ -278,5 +278,24 @@ int main() {
     return 0;
 }
 
+// vérification des reponse entre 1 et 5 (Exclu les chiffres inférieur à 1 et supérieur à 5) (Exclu les lettre) 
+int lire_reponse() {
+    int a;
 
+    do {
+        printf("Votre réponse (1 à 5) : ");
+
+        if (scanf("%d", &a) != 1) {
+            printf("Erreur : entrée non numérique.\n");
+            while (getchar() != '\n');
+            a = 0;
+        }
+        else if (a < 1 || a > 5) {
+            printf("Veuillez entrer un nombre entre 1 et 5.\n");
+        }
+
+    } while (a < 1 || a > 5);
+
+    return a;
+}
 
