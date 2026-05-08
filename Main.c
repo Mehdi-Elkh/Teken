@@ -15,6 +15,7 @@ typedef struct {
 } Question;
 
 typedef struct {
+	char titre[100];
     int nb_questions;
     int negatif;
     int plusieurs; 
@@ -57,6 +58,10 @@ int note(QCM qcm , int a , int note ){
 
 void construct_QCM(QCM *qcm){
     
+    printf("Quel est le titre de votre QCM ? \n");
+    scanf("%s" , (*qcm).titre);
+    getchar()
+    //Verification de la variable
     printf("Combien de questions voulez vous qu'il y ai dans votre QCM ? \n");
     scanf("%d" , &(*qcm).nb_questions);
     getchar();
@@ -86,8 +91,11 @@ void construct_QCM(QCM *qcm){
 
 
 void fichier_QCM(QCM *qcm){
+    char filename[100];
+    sprintf(filename , "%s.txt , (*qcm).titre);
     
-    FILE *f = fopen("qcm.txt" , "w");
+    FILE *f = fopen(filename , "w");
+    
     if (f == NULL){
    		printf("Erreur ouverture fichier\n");
 		return;
@@ -110,8 +118,10 @@ void fichier_QCM(QCM *qcm){
 
 // BOUGEZ PAS la fonction d'ici sinon j'ai un probleme de declaration dans le mode étudiant 
 void lire_QCM(QCM *qcm){
+    char filename[100];
+    sprintf(filename , "%s.txt , (*qcm).titre);
     
-    FILE *f = fopen("qcm.txt" , "r");
+    FILE *f = fopen(filename , "r");
     if (f == NULL){
    		printf("Erreur ouverture fichier\n");
 		return;
