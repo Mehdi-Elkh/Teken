@@ -62,27 +62,47 @@ void construct_QCM(QCM *qcm){
     scanf("%s" , (*qcm).titre);
     getchar()
     //Verification de la variable
+	do{
     printf("Combien de questions voulez vous qu'il y ai dans votre QCM ? \n");
     scanf("%d" , &(*qcm).nb_questions);
     getchar();
+		if(qcm.nb_questions==0 || (*qcm).nb_questions<=0)){
+			printf("Veuillez choisir un nombre positif);
+				}
+	}while(qcm.nb_questions==0 || (*qcm).nb_questions<=0);
     //Verification de la variable
-    printf("Votre QCM est-il a points negatif ? (oui = 1 ; non = 0) \n");
+    do{ printf("Votre QCM est-il a points negatif ? (oui = 1 ; non = 0) \n");
     scanf("%d" , &(*qcm).negatif);
     getchar();
+	   if(*qcm).negatif!=0 && (*qcm).negatif!=1){
+		   printf("Veuillez choisir un nombre valide entre 0 et 1);
+		  }
+	  }while(*qcm).negatif!=0 && (*qcm).negatif!=1);
     //Verification de la variable
     for (int j = 0 ; j < (*qcm).nb_questions ; j++){
     	(*qcm).question[j].numero = j + 1;
-		printf("Veuillez ecrire une question : \n");
+		do{printf("Veuillez ecrire une question : \n");
     	fgets((*qcm).question[j].intitule, TAILLE ,stdin);
+		   if(strlen((*qcm).question[j].intitule==0){
+			   printf"(Veuillez enter une question");
+				   }
+	  } while (strlen((*qcm).question[j].intitule==0);
         //Verification de la variable
         for(int i = 0 ; i < NB_CHOIX ; i++){
-            printf("Veuillez ecrire le choix %d (5ème choix = passer la question) : \n", i +1);
+           do{ printf("Veuillez ecrire le choix %d (5ème choix = passer la question) : \n", i +1);
             fgets((*qcm).question[j].choix[i], TAILLE , stdin); 
+			   if(strlen(*qcm).question[j].choix[i]) == 0){
+                    printf("Veuillez entrez au moins une réponse.\n");
+			   }while((strlen(*qcm).question[j].choix[i]) == 0);
             //Verification de la variable
         }
-        printf("A quelle place est la bonne reponse  ? \n");
+        do{printf("A quelle place est la bonne reponse  ? \n");
         scanf("%d", &(*qcm).question[j].place);
         getchar();
+		if(*qcm).question[j].place < 1 || (*qcm).question[j].place > NB_CHOIX){
+			printf("Veuillez chosir un nombre entre 1 et %d,NB_CHOIX);
+			}
+		{while(*qcm).question[j].place < 1 || (*qcm).question[j].place > NB_CHOIX);
         //Verification de la variable
     }
     
@@ -288,21 +308,7 @@ int main() {
     return 0;
 }
 
-// vérification des reponse entre 1 et 5 (Exclu les chiffres inférieur à 1 et supérieur à 5) (Exclu les lettre) 
-int lire_reponse() {
-    int a;
 
-    do {
-        printf("Votre réponse (1 à 5) : ");
-
-        if (scanf("%d", &a) != 1) {
-            printf("Erreur : entrée non numérique.\n");
-            while (getchar() != '\n');
-            a = 0;
-        }
-        else if (a < 1 || a > 5) {
-            printf("Veuillez entrer un nombre entre 1 et 5.\n");
-        }
 
     } while (a < 1 || a > 5);
 
