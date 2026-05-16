@@ -103,7 +103,7 @@ void construct_QCM(QCM *qcm){
     }
     
 }
-}
+
 
 
 void fichier_QCM(QCM *qcm){
