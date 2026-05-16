@@ -22,7 +22,13 @@ typedef struct {
     Question question[100];
 } QCM;
 
-
+void afficher_QCM_dispo(){    
+    printf("\n--- QCM DISPONIBLES ---\n");
+    printf("1. maths.txt\n");
+    printf("2. info.txt\n");
+    printf("3. culture.txt\n");
+    printf("4. anglais.txt\n");
+}
 
 
 int note(QCM qcm , int a , int note ){
@@ -64,16 +70,16 @@ void construct_QCM(QCM *qcm){
     printf("Combien de questions voulez vous qu'il y ai dans votre QCM ? \n");
     scanf("%d" , &(*qcm).nb_questions);
     getchar();
-		if(qcm.nb_questions==0 || (*qcm).nb_questions<=0)){
-			printf("Veuillez choisir un nombre positif);
+		if(qcm.nb_questions==0 || (*qcm).nb_questions<=0){
+			printf("Veuillez choisir un nombre positif\n");
 				}
 	} while((*qcm).nb_questions==0 || (*qcm).nb_questions<=0);
     do{
         printf("Votre QCM est-il a points negatif ? (oui = 1 ; non = 0) \n");
     	scanf("%d" , &(*qcm).negatif);
     	getchar();
-	    if(*qcm).negatif!=0 && (*qcm).negatif!=1){
-		   	printf("Veuillez choisir un nombre valide entre 0 et 1);
+	    if((*qcm).negatif!=0 && (*qcm).negatif!=1){
+		   	printf("Veuillez choisir un nombre valide entre 0 et 1\n");
 		}
 	  } while((*qcm).negatif!=0 && (*qcm).negatif!=1);
     for (int j = 0 ; j < (*qcm).nb_questions ; j++){
@@ -91,9 +97,10 @@ void construct_QCM(QCM *qcm){
         	scanf("%d", &(*qcm).question[j].place);
         	getchar();
 			if((*qcm).question[j].place < 1 || (*qcm).question[j].place > NB_CHOIX){
-				printf("Veuillez chosir un nombre entre 1 et %d,NB_CHOIX);
+				printf("Veuillez chosir un nombre entre 1 et %d",NB_CHOIX);
 			}
 		} while((*qcm).question[j].place < 1 || (*qcm).question[j].place > NB_CHOIX);
+		
     }
     
 }
@@ -102,7 +109,7 @@ void construct_QCM(QCM *qcm){
 
 void fichier_QCM(QCM *qcm){
     char filename[100];
-    sprintf(filename , "%s.txt , (*qcm).titre);
+    sprintf(filename , "%s.txt" , (*qcm).titre);
     
     FILE *f = fopen(filename , "w");
     
@@ -127,10 +134,8 @@ void fichier_QCM(QCM *qcm){
 
 
 // BOUGEZ PAS la fonction d'ici sinon j'ai un probleme de declaration dans le mode étudiant 
-void lire_QCM(QCM *qcm){
-    char filename[100];
-    sprintf(filename , "%s.txt , (*qcm).titre);
-    
+void lire_QCM(QCM *qcm,char filename[]){
+  
     FILE *f = fopen(filename , "r");
     if (f == NULL){
    		printf("Erreur ouverture fichier\n");
@@ -165,8 +170,34 @@ void mode_etudiant(){
     int note , a;
     note = 0;
 	int resulta;
+	int choixQCM;              
+	char fichier[100];
+	
     printf("mode étudiant\n");
-	lire_QCM(&qcm);
+	afficher_QCM_dispo():
+	
+	printf("Choisissez le QCM a passer : ");
+	scanf("%d", &choixQCM);   
+	if(choixQCM == 1){
+    	lire_QCM(&qcm, "maths.txt");
+	}
+
+	else if(choixQCM == 2){
+	    lire_QCM(&qcm, "info.txt");
+	}
+	
+	else if(choixQCM == 3){
+	    lire_QCM(&qcm, "culture.txt");
+	}
+	
+	else if(choixQCM == 4){
+	    lire_QCM(&qcm, "anglais.txt");
+	}
+	
+	else{
+	    printf("Choix invalide\n");
+	    return;
+	}
 	for( int i=0; i < qcm.nb_questions;i++){
 		printf("\nQuestion %d :\n",qcm.question[i].numero);
 		printf("%s", qcm.question[i].intitule);
@@ -271,7 +302,7 @@ int main() {
                 scanf("%d", &sousChoix);
 
                 if (sousChoix == 1) {
-                    //On doit afficher la liste des fichiers pour qu'il puisse choisir quelle QCM il passe 
+                   afficher_QCM_disponibles();
                 }
                 else if (sousChoix == 2) {
                     mode_etudiant();
@@ -300,8 +331,4 @@ int main() {
 
 
 
-    } while (a < 1 || a > 5);
-
-    return a;
-}
-
+    
