@@ -26,8 +26,7 @@ void afficher_QCM_dispo(){
     printf("\n--- QCM DISPONIBLES ---\n");
     printf("1. maths.txt\n");
     printf("2. info.txt\n");
-    printf("3. culture.txt\n");
-    printf("4. anglais.txt\n");
+    printf("3. FOOT.txt\n");
 }
 
 
@@ -70,7 +69,7 @@ void construct_QCM(QCM *qcm){
     printf("Combien de questions voulez vous qu'il y ai dans votre QCM ? \n");
     scanf("%d" , &(*qcm).nb_questions);
     getchar();
-		if(qcm.nb_questions==0 || (*qcm).nb_questions<=0){
+		if((*qcm).nb_questions==0 || (*qcm).nb_questions<=0){
 			printf("Veuillez choisir un nombre positif\n");
 				}
 	} while((*qcm).nb_questions==0 || (*qcm).nb_questions<=0);
@@ -87,7 +86,7 @@ void construct_QCM(QCM *qcm){
             printf("Veuillez ecrire une question : \n");
     		fgets((*qcm).question[j].intitule, TAILLE ,stdin);
 			   		printf("Veuillez enter une question");
-				}
+				
 	for(int i = 0 ; i < NB_CHOIX ; i++){
 				printf("Veuillez ecrire le choix %d (5ème choix = passer la question) : \n", i +1);
             	fgets((*qcm).question[j].choix[i], TAILLE , stdin);
@@ -104,7 +103,7 @@ void construct_QCM(QCM *qcm){
     }
     
 }
-
+}
 
 
 void fichier_QCM(QCM *qcm){
@@ -187,12 +186,9 @@ void mode_etudiant(){
 	}
 	
 	else if(choixQCM == 3){
-	    lire_QCM(&qcm, "culture.txt");
+	    lire_QCM(&qcm, "foot.txt");
 	}
 	
-	else if(choixQCM == 4){
-	    lire_QCM(&qcm, "anglais.txt");
-	}
 	
 	else{
 	    printf("Choix invalide\n");
