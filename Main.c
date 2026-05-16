@@ -86,7 +86,7 @@ void construct_QCM(QCM *qcm){
     	(*qcm).question[j].numero = j + 1;
             printf("Veuillez ecrire une question : \n");
     		fgets((*qcm).question[j].intitule, TAILLE ,stdin);
-			   		printf"(Veuillez enter une question");
+			   		printf("Veuillez enter une question");
 				}
 	for(int i = 0 ; i < NB_CHOIX ; i++){
 				printf("Veuillez ecrire le choix %d (5ème choix = passer la question) : \n", i +1);
@@ -174,7 +174,7 @@ void mode_etudiant(){
 	char fichier[100];
 	
     printf("mode étudiant\n");
-	afficher_QCM_dispo():
+	afficher_QCM_dispo();
 	
 	printf("Choisissez le QCM a passer : ");
 	scanf("%d", &choixQCM);   
@@ -302,7 +302,7 @@ int main() {
                 scanf("%d", &sousChoix);
 
                 if (sousChoix == 1) {
-                   afficher_QCM_disponibles();
+                   afficher_QCM_dispo();
                 }
                 else if (sousChoix == 2) {
                     mode_etudiant();
