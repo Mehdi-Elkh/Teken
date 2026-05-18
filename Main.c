@@ -1,4 +1,4 @@
-.#include <stdlib.h>
+#include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
 
@@ -209,7 +209,7 @@ void mode_etudiant(){
     	}
         
 	}
-	 printf("votre note est %d sur %d \n",note, qcm.nb_questions);
+	 printf("Votre note est %d sur %d \n",note, qcm.nb_questions);
 
 }
 
