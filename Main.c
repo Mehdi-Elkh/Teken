@@ -203,16 +203,19 @@ void mode_etudiant(){
         		juste = 0;
     		}
     	}
-    	if (juste) {
-    		printf("Vrai\n");
-    		note++;
+    	if (juste == 0) {
+    		if (rep[0] == 2) {
+                //On passe la question
+            } else {
+       		 	printf("Faux\n");
+        		if (qcm.negatif == 1) {
+                	note--;
+    			}
 		}
 		else {
-  			printf("Faux\n");
-    		if (qcm.negatif == 1) {
-    			note--;
-            }    
-    	}   
+    		printf("Vrai\n");
+    		note++;
+		}  
 	}
 	 printf("Votre note est %d sur %d \n",note, qcm.nb_questions);
 
