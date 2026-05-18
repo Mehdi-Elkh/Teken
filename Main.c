@@ -29,36 +29,6 @@ void afficher_QCM_dispo(){
 }
 
 
-int note(QCM qcm , int a , int note ){
-    if(qcm.negatif == 1){
-	    	if(a==qcm.question[i].place){
-	      		printf("Vrai\n");
-				note = note +1;
-	    
-	    	}
-            else if(a == 5){
-                note = note;
-                printf("Question passée");
-            }
-	    	else{
-	        	printf("Faux\n");
-                note--;
-	      	}
-	    }
-        else{
-	    	if(a==qcm.question[i].place){
-	      		printf("Vrai\n");
-				note = note +1;
-	   
-	    	}
-	    	else{
-	        	printf("Faux\n");
-                
-	      	}
-        }
-}
-
-
 
 void construct_QCM(QCM *qcm){
     	
