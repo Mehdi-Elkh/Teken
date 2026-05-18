@@ -11,7 +11,7 @@ typedef struct {
 	int numero;
 	char intitule[TAILLE];
     char choix[NB_CHOIX][TAILLE];
-    int vrai[NB_CHOIX - 1];
+    int vrai[NB_CHOIX ];
 } Question;
 
 typedef struct {
