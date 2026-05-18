@@ -185,7 +185,7 @@ void mode_etudiant(){
 			printf("%d-",j+1);
 			printf("%s",qcm.question[i].choix[j]);
 		
-			printf(" (1 = oui / 0 = non) : ");
+			printf(" (1 = vrai / 0 = faux / 2 = passer question) : ");
     		resulta = scanf("%d", &rep[j]);
             
     		if (resulta != 1) {
@@ -193,7 +193,11 @@ void mode_etudiant(){
         		while (getchar() != '\n');
         		rep[j] = 0;
             }
-			printf(" (1 = oui / 0 = non) : ");
+			if (rep[j] == 2) {
+        		printf("Question passée\n");
+        		juste = 0;
+       			break;
+			}
 
 			if (rep[j] != qcm.question[i].vrai[j]) {
         		juste = 0;
