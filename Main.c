@@ -79,7 +79,6 @@ void construct_QCM(QCM *qcm){
         		}
 			
             } while((*qcm).question[j].vrai[i] != 0 && (*qcm).question[j].vrai[i] != 1);
-		(*qcm).question[j].choix[4] = "Passer la question";
         }
     }
     
@@ -211,8 +210,8 @@ void mode_etudiant(){
         		if (qcm.negatif == 1) {
                 	note--;
     			}
-		}
-		else {
+			}
+		}else {
     		printf("Vrai\n");
     		note++;
 		}  
