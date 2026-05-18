@@ -1,4 +1,4 @@
-#include <stdlib.h>
+.#include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
 
@@ -74,7 +74,7 @@ void construct_QCM(QCM *qcm){
         	scanf("%d", &(*qcm).question[j].vrai[i]);
         	getchar();
 			if((*qcm).question[j].vrai[i] != 1 && (*qcm).question[j].vrai[i] != 0){
-				printf("Veuillez chosir un nombre entre 0 et 1",);
+				printf("Veuillez chosir un nombre entre 0 et 1");
 				
         	}
 		}while((*qcm).question[j].vrai[i] != 0 && (*qcm).question[j].vrai[i] != 1);
