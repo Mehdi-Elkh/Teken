@@ -11,14 +11,13 @@ typedef struct {
 	int numero;
 	char intitule[TAILLE];
     char choix[NB_CHOIX][TAILLE];
-    int place;
+    int vrai[NB_CHOIX - 1];
 } Question;
 
 typedef struct {
 	char titre[100];
     int nb_questions;
     int negatif;
-    int plusieurs; 
     Question question[100];
 } QCM;
 
@@ -62,9 +61,13 @@ int note(QCM qcm , int a , int note ){
 
 
 void construct_QCM(QCM *qcm){
-    	printf("Quel est le titre de votre QCM ? \n");
-    	scanf("%s" , (*qcm).titre);
-    	getchar();
+    	
+        
+    printf("Quel est le titre de votre QCM ? \n");
+    scanf("%s" , (*qcm).titre);
+	getchar();
+        
+        
 	do{
     printf("Combien de questions voulez vous qu'il y ai dans votre QCM ? \n");
     scanf("%d" , &(*qcm).nb_questions);
@@ -73,6 +76,8 @@ void construct_QCM(QCM *qcm){
 			printf("Veuillez choisir un nombre positif\n");
 				}
 	} while((*qcm).nb_questions==0 || (*qcm).nb_questions<=0);
+    
+    
     do{
         printf("Votre QCM est-il a points negatif ? (oui = 1 ; non = 0) \n");
     	scanf("%d" , &(*qcm).negatif);
@@ -81,24 +86,29 @@ void construct_QCM(QCM *qcm){
 		   	printf("Veuillez choisir un nombre valide entre 0 et 1\n");
 		}
 	  } while((*qcm).negatif!=0 && (*qcm).negatif!=1);
+    
+    
     for (int j = 0 ; j < (*qcm).nb_questions ; j++){
     	(*qcm).question[j].numero = j + 1;
-            printf("Veuillez ecrire une question : \n");
-    		fgets((*qcm).question[j].intitule, TAILLE ,stdin);
-			   		printf("Veuillez enter une question");
+        printf("Veuillez ecrire une question : \n");
+    	fgets((*qcm).question[j].intitule, TAILLE ,stdin);
+ 		printf("Veuillez enter une question");
 				
-	for(int i = 0 ; i < NB_CHOIX ; i++){
-				printf("Veuillez ecrire le choix %d (5ème choix = passer la question) : \n", i +1);
+		for(int i = 0 ; i < NB_CHOIX ; i++){
+				printf("Veuillez ecrire le choix %d : \n", i +1);
             	fgets((*qcm).question[j].choix[i], TAILLE , stdin);
-        }
-        do{
-            printf("A quelle place est la bonne reponse  ? \n");
-        	scanf("%d", &(*qcm).question[j].place);
+        
+        	do{
+                
+            printf("Est ce que le choix%d est t'il vrai ? \n", i);
+        	scanf("%d", &(*qcm).question[j].vrai[i]);
         	getchar();
-			if((*qcm).question[j].place < 1 || (*qcm).question[j].place > NB_CHOIX){
-				printf("Veuillez chosir un nombre entre 1 et %d",NB_CHOIX);
-			}
+			if((*qcm).question[j].vrai[i] != 1 && (*qcm).question[j].vrai[i] != 0){
+				printf("Veuillez chosir un nombre entre 0 et 1",);
+				
+        	}
 		} while((*qcm).question[j].place < 1 || (*qcm).question[j].place > NB_CHOIX);
+		}
 		
     }
     
@@ -116,16 +126,17 @@ void fichier_QCM(QCM *qcm){
    		printf("Erreur ouverture fichier\n");
 		return;
     }
+    
     fprintf(f, "%d\n" , (*qcm).nb_questions);
     fprintf(f, "%d\n" , (*qcm).negatif);
-    //Faudra ecrire si le qcm a plusieur reponses possibles pour pouvoir directement rgarder ici pour le calcul de la note
-    //Ou pas on peut juste traiter la structure
+    
+    
     for(int j = 0 ; j < (*qcm).nb_questions ; j++){
         fprintf(f , "%d.%s" , (*qcm).question[j].numero , (*qcm).question[j].intitule);
-        fprintf(f, "%d\n" , (*qcm).question[j].place);
         
         for(int i = 0 ; i < NB_CHOIX ; i++){
-            fprintf(f, "%s" , (*qcm).question[j].choix[i]);
+        	fprintf(f, "%s" , (*qcm).question[j].choix[i]);
+            fprintf(f, "%d\n" , (*qcm).question[j].vrai[i]);
         }
     }
     fclose(f);
@@ -140,16 +151,17 @@ void lire_QCM(QCM *qcm,char filename[]){
    		printf("Erreur ouverture fichier\n");
 		return;
     }
+    
 	fscanf(f, "%d" , &(*qcm).nb_questions);
 	fscanf(f, "%d" , &(*qcm).negatif);
-    //Faudra lire si le qcm a plusieur reponses possibles pour pouvoir directement regarder ici pour le calcul de la note
+
     for(int j = 0 ; j < (*qcm).nb_questions ; j++){
         fscanf(f, "%d.", &(*qcm).question[j].numero);
         fgets((*qcm).question[j].intitule, TAILLE , f);
-        fscanf(f, "%d\n" , &(*qcm).question[j].place);
         
         for(int i = 0 ; i < NB_CHOIX ; i++){
-            fgets((*qcm).question[j].choix[i], TAILLE , f);
+        	fgets((*qcm).question[j].choix[i], TAILLE , f);
+            fscanf(f, "%d\n" , &(*qcm).question[j].vrai[i]);
         }
     }
     fclose(f);
@@ -166,8 +178,8 @@ void mode_ensaignant(){
 
 void mode_etudiant(){
     QCM qcm ;
-    int note , a;
-    note = 0;
+    int note = 0 , rep[NB_CHOIX];
+    int juste = 1 ;
 	int resulta;
 	int choixQCM;              
 	char fichier[100];
@@ -201,40 +213,29 @@ void mode_etudiant(){
 		for (int j=0;j< NB_CHOIX;j++){
 			printf("%d-",j+1);
 			printf("%s",qcm.question[i].choix[j]);
+		
+			printf(" (1 = oui / 0 = non) : ");
+    		resulta = scanf("%d", &rep[j]);
+    		if (resulta != 1) {
+        	printf("Erreur\n");
+        	while (getchar() != '\n');
+        	rep[j] = 0;
+			printf(" (1 = oui / 0 = non) : ");
+
+			if (rep[j] != qcm.question[i].vrai[j]) {
+        		juste = 0;
+    		}
+    	}
+    	if (juste) {
+    		printf("Vrai\n");
+    		note++;
 		}
-		printf("Votre réponse :");
-		resulta= scanf("%d",&a);
-		if(resulta!=1){
-			printf("faux");
-			while(getchar() != '\n');
-            continue;	
-		 }
-        if(qcm.negatif == 1){
-	    	if(a==qcm.question[i].place){
-	      		printf("Vrai\n");
-				note = note +1;
-	    
-	    	}
-            else if(a == 5){
-                note = note;
-                printf("Question passée");
-            }
-	    	else{
-	        	printf("Faux\n");
-                note--;
-	      	}
-	    }
-        else{
-	    	if(a==qcm.question[i].place){
-	      		printf("Vrai\n");
-				note = note +1;
-	   
-	    	}
-	    	else{
-	        	printf("Faux\n");
-                
-	      	}
-        }
+		else {
+  		printf("Faux\n");
+    	if (qcm.negatif == 1) {
+    		note--;
+    	}
+        
 	}
 	 printf("votre note est %d sur %d \n",note, qcm.nb_questions);
 
