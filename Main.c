@@ -203,11 +203,11 @@ void mode_etudiant(){
     		note++;
 		}
 		else {
-  		printf("Faux\n");
-    	if (qcm.negatif == 1) {
-    		note--;
-    	}
-        
+  			printf("Faux\n");
+    		if (qcm.negatif == 1) {
+    			note--;
+            }    
+    	}   
 	}
 	 printf("Votre note est %d sur %d \n",note, qcm.nb_questions);
 
