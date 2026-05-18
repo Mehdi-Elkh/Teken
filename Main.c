@@ -77,7 +77,7 @@ void construct_QCM(QCM *qcm){
 				printf("Veuillez chosir un nombre entre 0 et 1",);
 				
         	}
-		} while((*qcm).question[j].place < 1 || (*qcm).question[j].place > NB_CHOIX);
+		}while((*qcm).question[j].vrai[i] != 0 && (*qcm).question[j].vrai[i] != 1);
 		}
 		
     }
