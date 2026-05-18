@@ -186,12 +186,12 @@ void mode_etudiant(){
 		
 			printf(" (1 = oui / 0 = non) : ");
     		resulta = scanf("%d", &rep[j]);
+            
     		if (resulta != 1) {
         		printf("Erreur\n");
+        		while (getchar() != '\n');
+        		rep[j] = 0;
             }
-            
-        	while (getchar() != '\n');
-        	rep[j] = 0;
 			printf(" (1 = oui / 0 = non) : ");
 
 			if (rep[j] != qcm.question[i].vrai[j]) {
