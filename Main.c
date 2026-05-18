@@ -11,7 +11,7 @@ typedef struct {
 	int numero;
 	char intitule[TAILLE];
     char choix[NB_CHOIX][TAILLE];
-    int vrai[NB_CHOIX ];
+    int vrai[NB_CHOIX - 1];
 } Question;
 
 typedef struct {
@@ -64,22 +64,23 @@ void construct_QCM(QCM *qcm){
     	fgets((*qcm).question[j].intitule, TAILLE ,stdin);
  		printf("Veuillez enter une question");
 				
-		for(int i = 0 ; i < NB_CHOIX ; i++){
+		for(int i = 0 ; i < NB_CHOIX - 1 ; i++){
 				printf("Veuillez ecrire le choix %d : \n", i +1);
             	fgets((*qcm).question[j].choix[i], TAILLE , stdin);
         
         	do{
                 
-            printf("Est ce que le choix%d est t'il vrai ? \n", i);
-        	scanf("%d", &(*qcm).question[j].vrai[i]);
-        	getchar();
-			if((*qcm).question[j].vrai[i] != 1 && (*qcm).question[j].vrai[i] != 0){
-				printf("Veuillez chosir un nombre entre 0 et 1");
+            	printf("Est ce que le choix%d est t'il vrai ? \n", i);
+        		scanf("%d", &(*qcm).question[j].vrai[i]);
+        		getchar();
+				if((*qcm).question[j].vrai[i] != 1 && (*qcm).question[j].vrai[i] != 0){
+					printf("Veuillez chosir un nombre entre 0 et 1");
 				
-        	}
-		}while((*qcm).question[j].vrai[i] != 0 && (*qcm).question[j].vrai[i] != 1);
-		}
-		
+        		}
+			
+            } while((*qcm).question[j].vrai[i] != 0 && (*qcm).question[j].vrai[i] != 1);
+		(*qcm).question[j].choix[4] = "Passer la question";
+        }
     }
     
 }
