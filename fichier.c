@@ -1,3 +1,5 @@
+#include "constrcut.h"
+
 void fichier_QCM(QCM *qcm){
     char filename[100];
     sprintf(filename , "%s.txt" , (*qcm).titre);
