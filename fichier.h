@@ -5,5 +5,5 @@
     #include "construct.h"
     
     void fichier_QCM(QCM *qcm);
-    
+    void lire_QCM(QCM *qcm,char filename[]);
 #endif
