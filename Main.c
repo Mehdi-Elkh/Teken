@@ -226,6 +226,7 @@ void mode_etudiant(){
 int main() {
     int choix;
     int sousChoix;
+	int resulta;
     char motDePasse[20];
 
     do {
@@ -234,7 +235,14 @@ int main() {
         printf("2. Mode etudiant\n");
         printf("3. Quitter\n");
         printf("Votre choix : ");
-        scanf("%d", &choix);
+        resulta = scanf("%d", &choix);
+
+        if(resulta != 1){
+            printf("Choix invalide\n");
+            while(getchar() != '\n'){
+            }
+            choix = 0;
+        }
 
         if (choix == 1) {
             
@@ -248,7 +256,14 @@ int main() {
                     printf("1. Creer un QCM\n");
                     printf("2. Retour\n");
                     printf("Votre choix : ");
-                    scanf("%d", &sousChoix);
+                    resulta = scanf("%d", &sousChoix);
+
+                    if(resulta != 1){
+                        printf("Choix invalide\n");
+                        while(getchar() != '\n'){
+                        }
+                        sousChoix = 0;
+                    }
 
                     if (sousChoix == 1) {
                         mode_ensaignant();
@@ -275,7 +290,15 @@ int main() {
                 printf("2. Passer un QCM\n");
                 printf("3. Retour\n");
                 printf("Votre choix : ");
-                scanf("%d", &sousChoix);
+                resulta = scanf("%d", &sousChoix);
+
+                if(resulta != 1){
+                    printf("Choix invalide\n");
+                    while(getchar() != '\n'){
+                    }
+                    sousChoix = 0;
+                }
+
 
                 if (sousChoix == 1) {
                    afficher_QCM_dispo();
