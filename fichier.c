@@ -1,4 +1,4 @@
-#include "constrcut.h"
+#include "fichier.h"
 
 void fichier_QCM(QCM *qcm){
     char filename[100];
