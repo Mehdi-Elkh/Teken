@@ -1,3 +1,8 @@
-#include "bibliotheque.h"
+#ifndef CONSTRUCT.H
+	#define CONSTRUCT.H
 
-void construct_QCM(QCM *qcm);
+	#include "bibliotheque.h"
+
+	void construct_QCM(QCM *qcm);
+
+#endif
