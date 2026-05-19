@@ -5,6 +5,7 @@
     #include "construct.h"
     #include"fichier.h"
     
-
+	void mode_ensaignant();
+    void mode_etudiant();
 
 #endif
