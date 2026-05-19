@@ -23,3 +23,26 @@ void fichier_QCM(QCM *qcm){
     }
     fclose(f);
 }
+
+void lire_QCM(QCM *qcm,char filename[]){
+  
+    FILE *f = fopen(filename , "r");
+    if (f == NULL){
+   		printf("Erreur ouverture fichier\n");
+		return;
+    }
+    
+	fscanf(f, "%d" , &(*qcm).nb_questions);
+	fscanf(f, "%d" , &(*qcm).negatif);
+
+    for(int j = 0 ; j < (*qcm).nb_questions ; j++){
+        fscanf(f, "%d.", &(*qcm).question[j].numero);
+        fgets((*qcm).question[j].intitule, TAILLE , f);
+        
+        for(int i = 0 ; i < NB_CHOIX ; i++){
+        	fgets((*qcm).question[j].choix[i], TAILLE , f);
+            fscanf(f, "%d\n" , &(*qcm).question[j].vrai[i]);
+        }
+    }
+    fclose(f);
+}
