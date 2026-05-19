@@ -149,7 +149,7 @@ void mode_ensaignant(){
 void mode_etudiant(){
     QCM qcm ;
     int note = 0 , rep[NB_CHOIX];
-    int juste = 1 ;
+  
 	int resulta;
 	int choixQCM;              
 	char fichier[100];
@@ -158,7 +158,15 @@ void mode_etudiant(){
 	afficher_QCM_dispo();
 	
 	printf("Choisissez le QCM a passer : ");
-	scanf("%d", &choixQCM);   
+	printf("Choisissez le QCM a passer : ");
+	resulta = scanf("%d", &choixQCM);
+	
+	if(resulta != 1){
+	    printf("Choix invalide\n");
+	    while(getchar() != '\n'){
+	    }
+	    return;
+	} 
 	if(choixQCM == 1){
     	lire_QCM(&qcm, "maths.txt");
 	}
@@ -177,6 +185,7 @@ void mode_etudiant(){
 	    return;
 	}
 	for( int i=0; i < qcm.nb_questions;i++){
+		int juste =1;
 		printf("\nQuestion %d :\n",qcm.question[i].numero);
 		printf("%s", qcm.question[i].intitule);
 
