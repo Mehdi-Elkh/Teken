@@ -1,10 +1,5 @@
 #include "mode.h"
-void afficher_QCM_dispo(){
-    printf("\n--- QCM DISPONIBLES ---\n");
-    printf("1. maths.txt\n");
-    printf("2. info.txt\n");
-    printf("3. foot.txt\n");
-}
+
 
 void mode_ensaignant(){
     QCM qcm;
