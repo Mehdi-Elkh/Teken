@@ -9,10 +9,9 @@ void mode_ensaignant(){
 }
 
 void mode_etudiant(){
-    QCM qcm ;
-    int note = 0 , rep[NB_CHOIX];
+ QCM qcm ;
+ int note = 0 , rep[NB_CHOIX];
   
-	int resulta;
 	int choixQCM;    
 	char titre[100];          
 	char fichier[100];
