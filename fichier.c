@@ -60,6 +60,8 @@ void QCM_base(){
    fprintf(f , "maths\n");
    fprintf(f , "info\n");
    fprintf(f , "foot\n");
+   
+   fclose(f);
 }
 
 
