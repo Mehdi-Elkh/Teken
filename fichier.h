@@ -1,5 +1,5 @@
-#ifndef FICHIER.H
-	#define FICHIER.H
+#ifndef FICHIER_H
+	#define FICHIER_H
     
     #include "bibliotheque.h"
     #include "construct.h"

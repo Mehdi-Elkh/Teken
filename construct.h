@@ -1,5 +1,5 @@
-#ifndef CONSTRUCT.H
-	#define CONSTRUCT.H
+#ifndef CONSTRUCT_H
+	#define CONSTRUCT_H
 
 	#include "bibliotheque.h"
 

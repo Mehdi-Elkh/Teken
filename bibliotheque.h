@@ -1,3 +1,6 @@
+#ifndef BIBLIOTHEQUE_H
+#define BIBLIOTHEQUE_H
+
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
@@ -19,4 +22,5 @@ typedef struct {
     int nb_questions;
     int negatif;
     Question question[100];
-} QCM
+} QCM;
+#endif
