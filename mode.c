@@ -25,12 +25,22 @@ void mode_etudiant(){
 	
 	FILE *f = fopen("liste_qcm.txt","r");
 	
+	if (f == NULL){
+   		printf("Erreur ouverture fichier\n");
+		return;
+	}
+
+	for ( int i = 0 ; i < choixQCM ; i++){
+		fegts(titre , 100 , f);
+	}
+
+	fclose(f);
 	
-
-
-
-
-
+	titre[strelen(titre)-1] = "\0";
+		
+	sprintf(fichier , "%s.txt" , titre);
+	
+	lire_QCM(&qcm , fichier);
 
 	for( int i=0; i < qcm.nb_questions;i++){
 		int juste =1;
