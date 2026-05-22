@@ -62,5 +62,25 @@ void titre_QCM(QCM *qcm){
       fprintf(f,"%s\n",(*qcm).titre);
       
       fclose(f);
-      
+}
+
+
+
+void affiche_QCM_dispo(){
+   FILE *f = fopen("liste_qcm.txt","r");
+   
+   char titre[100];
+   int i = 1;
+   
+   if( f == NULL ){
+      printf("Erreur ouverture fichier\n");
+      return;
+   }
+   
+   printf("----QCM DISPONIBLES----\n");
+   
+   while(fgets(titre, 100 , f ) != NULL){
+      printf("%d. %s" , i , titre);
+      i++;
+   }
 }
