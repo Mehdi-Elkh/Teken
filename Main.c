@@ -8,6 +8,9 @@
 
 
 int main() {
+    
+    QCM_base();
+    
     int choix;
     int sousChoix;
 	int resulta;
