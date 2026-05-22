@@ -1,0 +1,47 @@
+5
+0
+1.Combien font 2 + 2 ?
+3
+0
+4
+1
+5
+0
+6
+0
+2.Quelle est la racine carree de 25 ?
+10
+0
+15
+0
+5
+1
+20
+0
+3.Combien font 7 x 3 ?
+21
+0
+18
+0
+24
+0
+27
+0
+4.Quelle est la valeur de pi environ ?
+2.14
+1
+4.13
+0
+5.12
+0
+3.14
+0
+5.Combien font 100 / 4 ?
+20
+0
+25
+0
+40
+0
+50
+0

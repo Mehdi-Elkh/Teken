@@ -1,0 +1,47 @@
+5
+1
+1.Quelle fonction permet de lire en langage C ?
+scanf
+1
+printf
+0
+main
+0
+return
+0
+2.Quel langage utilisez-vous pour ce projet ?
+Python
+0
+Java
+0
+C
+1
+HTML
+0
+3.Quelle fonction permet d'afficher du texte en C ?
+scanf
+0
+printf
+1
+fgets
+0
+main
+0
+4.Quel symbole termine une instruction en C ?
+.
+0
+,
+0
+:
+0
+;
+1
+5.Quel fichier contient generalement le code source en C ?
+main.c
+1
+main.txt
+0
+main.pdf
+0
+main.exe
+0

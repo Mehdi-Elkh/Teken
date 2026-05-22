@@ -1,0 +1,47 @@
+5
+0
+1.Combien de joueurs une equipe de football a-t-elle sur le terrain ?
+10
+0
+11
+1
+12
+0
+9
+0
+2.Quel pays a gagne la Coupe du Monde 2018 ?
+France
+1
+Bresil
+0
+Allemagne
+0
+Espagne
+0
+3.Qui a gagne le ballon d'or?
+Lionel Messi
+1
+Kylian Mbappe
+0
+Cristiano Ronaldo
+1
+Neymar
+0
+4.Combien de temps dure un match de football sans prolongation ?
+60 minutes
+0
+75 minutes
+0
+80 minutes
+0
+90 minutes
+1
+5.Quel club joue au stade Santiago Bernabeu ?
+FC Barcelone
+0
+Real Madrid
+1
+PSG
+0
+Manchester City
+0
