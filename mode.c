@@ -12,6 +12,7 @@ void mode_etudiant(){
  QCM qcm ;
  int note = 0 , rep[NB_CHOIX];
   
+	int resulta;
 	int choixQCM;    
 	char titre[100];          
 	char fichier[100];
@@ -30,12 +31,12 @@ void mode_etudiant(){
 	}
 
 	for ( int i = 0 ; i < choixQCM ; i++){
-		fegts(titre , 100 , f);
+		fgets(titre , 100 , f);
 	}
 
 	fclose(f);
 	
-	titre[strelen(titre)-1] = "\0";
+	titre[strlen(titre)-1] = "\0";
 		
 	sprintf(fichier , "%s.txt" , titre);
 	
