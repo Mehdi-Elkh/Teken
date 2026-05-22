@@ -48,3 +48,19 @@ void lire_QCM(QCM *qcm,char filename[]){
     }
     fclose(f);
 }
+
+
+void titre_QCM(QCM *qcm){
+   
+   FILE *f = fopen("liste_qcm.txt","a");
+   
+   if( f == NULL ){
+      printf("Erreur ouverture fichier\n");
+      return;
+   }
+   
+      fprintf(f,"%s\n",(*qcm).titre);
+      
+      fclose(f);
+      
+}
