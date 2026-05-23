@@ -73,7 +73,6 @@ int main() {
             
             do {
                 printf("\n--- MENU ETUDIANT ---\n");
-				afficher_QCM_dispo();
                 
                 
                 printf("1. Passer un QCM\n");
@@ -88,18 +87,20 @@ int main() {
                     }
                 }
 
-
-                if (sousChoix == 1) {
+				if ( sousChoix == 1){
+                	afficher_QCM_dispo();
+                } 
+                else if (sousChoix == 2) {
                     mode_etudiant();
                 }
-                else if (sousChoix == 2) {
+                else if (sousChoix == 3) {
                     printf("Retour au menu general.\n");
                 }
                 else {
                     printf("Choix invalide.\n");
                 }
 
-            }while (sousChoix != 2);
+            }while (sousChoix != 3);
             
         }
         else if (choix == 3) {
