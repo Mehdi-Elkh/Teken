@@ -56,5 +56,22 @@ Le mode étudiant permet :
     -les nombres invalides
     
     -les erreurs utilisateur
-    
+
+
+  STRUCTURE DU PROJET:
+ Fichier           Rôle                              
+
+ Main.c           menu principal                    
+construct.c       création des QCM
+fichier.c         lecture et écriture des fichiers
+mode.c            mode étudiant et enseignant
+bibliotheque.h    structures et constantes
+construct.h       prototypes du mode création       
+fichier.h        prototypes des fonctions fichiers 
+mode.h          prototypes des modes 
+makefile         compilation automatique
+
+
+
+  
 
