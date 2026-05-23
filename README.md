@@ -54,13 +54,13 @@ Le mode étudiant permet :
 
  Main.c           menu principal    
  
-construct.c       création des QCM
+construct.c/ création des QCM
 
-fichier.c         lecture et écriture des fichiers
+fichier.c/ lecture et écriture des fichiers
 
-mode.c            mode étudiant et enseignant
+mode.c/ mode étudiant et enseignant
 
-bibliotheque.h    structures et constantes
+bibliotheque.h/ structures et constantes
 
 construct.h       prototypes du mode création
 
