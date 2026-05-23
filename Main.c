@@ -88,19 +88,16 @@ int main() {
 
 
                 if (sousChoix == 1) {
-                   afficher_QCM_dispo();
-                }
-                else if (sousChoix == 2) {
                     mode_etudiant();
                 }
-                else if (sousChoix == 3) {
+                else if (sousChoix == 2) {
                     printf("Retour au menu general.\n");
                 }
                 else {
                     printf("Choix invalide.\n");
                 }
 
-            }while (sousChoix != 3);
+            }while (sousChoix != 2);
             
         }
         else if (choix == 3) {
