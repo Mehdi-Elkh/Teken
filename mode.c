@@ -86,7 +86,7 @@ void mode_etudiant(){
     		note++;
 		}  
 	}
-		note_20 = (note/qcm.nb_questions)*20
+		note_20 = (note/qcm.nb_questions)*20;
 	 printf("Votre note est de %f sur 20 \n",note_20);
 		
 
