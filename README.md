@@ -14,6 +14,7 @@ Mode enseignant
 Le mode enseignant permet :
   
   -créer un QCM
+  
   -choisir le titre du QCM
   -choisir le nombre de questions
   -choisir si le QCM possède des points négatifs
