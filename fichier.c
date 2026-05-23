@@ -51,13 +51,15 @@ void lire_QCM(QCM *qcm,char filename[]){
 
 void QCM_base(){
    
-   FILE *f = fopen ("liste_qcm.txt" , "w");
-   
+   FILE *f = fopen("liste_qcm.txt", "r");
    
    if ( f!= NULL){
       fclose(f);
       return;
    }
+   
+   FILE *f = fopen ("liste_qcm.txt" , "w");
+   
    
    if( f == NULL ){
       printf("Erreur ouverture fichier\n");
