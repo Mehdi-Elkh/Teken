@@ -74,9 +74,9 @@ int main() {
             do {
                 printf("\n--- MENU ETUDIANT ---\n");
                 
-                
-                printf("1. Passer un QCM\n");
-                printf("2. Retour\n");
+                printf("1. Afficher les qcm\n");
+                printf("2. Passer un QCM\n");
+                printf("3. Retour\n");
                 printf("Votre choix : ");
                 resulta = scanf("%d", &sousChoix);
 
