@@ -53,6 +53,12 @@ void QCM_base(){
    
    FILE *f = fopen ("liste_qcm.txt" , "w");
    
+   
+   if ( f!= NULL){
+      fclose(f);
+      return;
+   }
+   
    if( f == NULL ){
       printf("Erreur ouverture fichier\n");
       return;
