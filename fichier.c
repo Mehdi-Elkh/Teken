@@ -16,7 +16,7 @@ void fichier_QCM(QCM *qcm){
     
     
     for(int j = 0 ; j < (*qcm).nb_questions ; j++){
-        fprintf(f , "%d.%s" , (*qcm).question[j].numero , (*qcm).question[j].intitule);
+        fprintf(f , "%d.%s\n" , (*qcm).question[j].numero , (*qcm).question[j].intitule);
         
         for(int i = 0 ; i < NB_CHOIX ; i++){
         	fprintf(f, "%s" , (*qcm).question[j].choix[i]);
