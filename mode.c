@@ -12,6 +12,7 @@ void mode_ensaignant(){
 void mode_etudiant(){
  QCM qcm ;
  int note = 0 , rep[NB_CHOIX];
+	int note_20;
   
 	int resulta;
 	int choixQCM;    
@@ -85,6 +86,8 @@ void mode_etudiant(){
     		note++;
 		}  
 	}
-	 printf("Votre note est %d sur %d \n",note, qcm.nb_questions);
+		note_20 = (note/qcm.nb_questions)*20
+	 printf("Votre note est de %d sur 20 \n",note_20);
+		
 
 }
