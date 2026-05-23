@@ -73,7 +73,7 @@ void QCM_base(){
 
 void titre_QCM(QCM *qcm){
    
-	printf("Titre ajoute : %s\n", (*qcm).#titre);
+	printf("Titre ajouté : %s\n", (*qcm).titre);
 
    FILE *f = fopen("liste_qcm.txt","a");
    
