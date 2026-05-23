@@ -1,9 +1,12 @@
 # Teken
 Présentation du projet
 Ce projet est une application de QCM réalisée en langage C dans le terminal.
-Le programme possède deux modes :  
+Le programme possède deux modes :
+
   -un mode enseignant
+  
   -un mode étudiant
+  
 Les QCM sont enregistrés dans des fichiers .txt puis lu par le programme
 
 
