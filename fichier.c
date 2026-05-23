@@ -53,7 +53,7 @@ void QCM_base(){
    
    FILE *f = fopen("liste_qcm.txt", "r");
    
-   if ( f!= NULL){
+   if ( f != NULL){
       fclose(f);
       return;
    }
