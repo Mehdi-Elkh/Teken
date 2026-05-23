@@ -73,17 +73,19 @@ int main() {
             
             do {
                 printf("\n--- MENU ETUDIANT ---\n");
-                printf("1. Voir les QCM disponibles\n");
-                printf("2. Passer un QCM\n");
-                printf("3. Retour\n");
+				afficher_QCM_dispo();
+                
+                
+                printf("1. Passer un QCM\n");
+                printf("2. Retour\n");
                 printf("Votre choix : ");
                 resulta = scanf("%d", &sousChoix);
 
                 if(resulta != 1){
                     printf("Choix invalide\n");
                     while(getchar() != '\n'){
-                    }
                     sousChoix = 0;
+                    }
                 }
 
 
