@@ -82,7 +82,7 @@ void titre_QCM(QCM *qcm){
       return;
    }
    
-      fprintf(f,"%s\n",(*qcm).titre);
+      fprintf(f , "%s\n" , (*qcm).titre);
       
       fclose(f);
 }
