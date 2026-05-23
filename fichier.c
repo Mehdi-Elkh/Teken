@@ -108,4 +108,6 @@ void afficher_QCM_dispo(){
       printf("%d. %s" , i , titre);
       i++;
    }
+   
+   fclose(f);
 }
