@@ -87,7 +87,7 @@ void titre_QCM(QCM *qcm){
 
 
 
-void affiche_QCM_dispo(){
+void afficher_QCM_dispo(){
    FILE *f = fopen("liste_qcm.txt","r");
    
    char titre[100];
