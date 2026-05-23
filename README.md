@@ -9,8 +9,6 @@ Le programme possède deux modes :
   
   -un mode étudiant
   
-Les QCM sont enregistrés dans des fichiers .txt puis lu par le programme
-
 
 
 FONCTIONNALITE
@@ -49,13 +47,6 @@ Le mode étudiant permet :
   
   -afficher la note finale
   
-  -Le programme vérifie également :
-  
-    -les lettres à la place des nombres
-    
-    -les nombres invalides
-    
-    -les erreurs utilisateur
 
 
   STRUCTURE DU PROJET:
@@ -72,6 +63,12 @@ mode.h          prototypes des modes
 makefile         compilation automatique
 
 
+Comment Jouer?
+
+Etape 1: Faites make
+Etape 2: Choissier le mode si c'est le mode enseignant ne pas oubliez le mot de passe (Teken2025)
+Etape 3: Si mode étudiant choisissez un QCM à passer si c'est le mode enseignant creer un qcm 
+Etape 4: Avoir la meilleur note au qcm possible ou etre inventif pour creer un qcm ;)
 
   
 
