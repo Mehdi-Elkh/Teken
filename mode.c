@@ -37,7 +37,7 @@ void mode_etudiant(){
 
 	fclose(f);
 	
-	titre[strlen(titre)-1] = "\0";
+	titre[strlen(titre)-1] = '\0';
 		
 	sprintf(fichier , "%s.txt" , titre);
 	
