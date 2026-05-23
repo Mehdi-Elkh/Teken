@@ -105,8 +105,10 @@ void afficher_QCM_dispo(){
    printf("----QCM DISPONIBLES----\n");
    
    while(fgets(titre, 100 , f ) != NULL){
-      printf("%d. %s" , i , titre);
+      printf("%d. %s\n" , i , titre);
       i++;
+      
+   printf("----------------------\n");
    }
    
    fclose(f);
