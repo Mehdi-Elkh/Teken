@@ -39,7 +39,7 @@ void construct_QCM(QCM *qcm){
     	fgets((*qcm).question[j].intitule, TAILLE ,stdin);
  		printf("Veuillez enter une question");
 				
-		for(int i = 0 ; i < NB_CHOIX ; i++){
+		for(int i = 0 ; i < NB_CHOIX - 1 ; i++){
 				printf("Veuillez ecrire le choix %d : \n", i + 1);
             	fgets((*qcm).question[j].choix[i], TAILLE , stdin);
         
