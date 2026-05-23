@@ -6,4 +6,5 @@
     
     void fichier_QCM(QCM *qcm);
     void lire_QCM(QCM *qcm,char filename[]);
+    void QCM_base();
 #endif
