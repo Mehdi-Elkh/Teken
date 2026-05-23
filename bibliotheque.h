@@ -5,7 +5,7 @@
 #include <stdio.h>
 #include <string.h>
 
-#define NB_CHOIX 5
+#define NB_CHOIX 4
 #define TAILLE 1000
 
 
