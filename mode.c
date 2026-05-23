@@ -19,7 +19,7 @@ void mode_etudiant(){
 	char fichier[100];
 	
  printf("mode étudiant\n");
-	affiche_QCM_dispo();
+	afficher_QCM_dispo();
 	
 	printf("Choisissez le QCM a passer : ");
 	scanf("%d" , &choixQCM);
