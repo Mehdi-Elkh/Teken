@@ -22,7 +22,7 @@ void mode_etudiant(){
  printf("mode étudiant\n");
 	afficher_QCM_dispo();
 	
-	printf("Choisissez le QCM a passer : ");
+	printf("Choisissez le QCM a passer : \n");
 	scanf("%d" , &choixQCM);
 	
 	FILE *f = fopen("liste_qcm.txt","r");
@@ -51,9 +51,9 @@ void mode_etudiant(){
 
 		for (int j=0;j< NB_CHOIX;j++){
 			printf("%d-",j+1);
-			printf("%s",qcm.question[i].choix[j]);
+			printf("%s\n",qcm.question[i].choix[j]);
 		
-			printf(" (1 = vrai / 0 = faux / 2 = passer question) : ");
+			printf(" (1 = vrai / 0 = faux / 2 = passer question) : \n ");
     		resulta = scanf("%d", &rep[j]);
             
     		if (resulta != 1) {
