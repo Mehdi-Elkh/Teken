@@ -52,7 +52,7 @@ Le mode étudiant permet :
   STRUCTURE DU PROJET:
  Fichier           Rôle                              
 
- Main.c           menu principal    
+ Main.c/ menu principal    
  
 construct.c/ création des QCM
 
@@ -62,13 +62,13 @@ mode.c/ mode étudiant et enseignant
 
 bibliotheque.h/ structures et constantes
 
-construct.h       prototypes du mode création
+construct.h/ prototypes du mode création
 
-fichier.h        prototypes des fonctions fichiers
+fichier.h/  prototypes des fonctions fichiers
 
-mode.h          prototypes des modes
+mode.h/ prototypes des modes
 
-makefile         compilation automatique
+makefile/  compilation automatique
 
 
 Comment Jouer?
