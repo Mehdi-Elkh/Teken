@@ -73,7 +73,7 @@ makefile/  compilation automatique
 
 Comment Jouer?
 
-Etape 1: Faites make sur le terminal 
+Etape 1: Faites "make" sur le terminal 
 
 Etape 2: Choissier le mode si c'est le mode enseignant ne pas oubliez le mot de passe (Teken2025)
 
